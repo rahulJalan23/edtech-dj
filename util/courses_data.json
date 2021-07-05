@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Bachelor of Technology",
+        "short_form": "B.Tech",
+        "description": "Mollit enim cupidatat exercitation ad irure. Et aliquip ea id. Ex anim fugiat occaecat."
+    },
+    {
+        "name": "Master of Technology",
+        "short_form": "M.Tech",
+        "description": "Proident occaecat dolore culpa id in adipiscing, cupidatat sint in est eiusmod exercitation. Nisi deserunt velit elit esse eu excepteur voluptate."
+    },
+    {
+        "name": "Doctor of Philosophy",
+        "short_form": "Ph.D",
+        "description": "Sunt ullamco deserunt irure officia ipsum nulla amet. Nostrud culpa consequat exercitation eu. Officia voluptate duis laboris sint velit voluptate proident."
+    }
+]
