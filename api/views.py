@@ -51,8 +51,9 @@ def apiOverview(request):
 def subjectList(request):
 	subjects = Subject.objects.all()
 	serializer = SubjectSerializer(subjects, many=True)
-	return Response(serializer.data)
+	# return Response(serializer.data)
 	# return JsonResponse(serializer.data, safe=False)
+	return JsonResponse(serializer.data, json_dumps_params={'indent': 2})
 
 
 @api_view(['GET'])
