@@ -51,8 +51,13 @@ content-type: application/json
 
 ###
 
-GET  http://127.0.0.1:8000/api/textbook-list/?page=1
+GET  http://127.0.0.1:8000/api/textbook-list/?page_size=15&page=1
 content-type: application/json
+
+{
+  "page_size": 15,
+  "page": 1,
+}
 
 ###
 
