@@ -41,7 +41,7 @@ def apiOverview(request):
         'List Subjects': '/subject-list/',
         'Subject Detail View':'/subject-detail/<str:pk>/',
 		'List Users': '/user-list/',
-        'User Detail View':'/user-detail/<str:pk>/',
+        'User Detail View':'/user-detail/<str:username>/',
 	}
 
 	return Response(api_urls)
@@ -107,8 +107,8 @@ def UserList(request):
 
 
 @api_view(['GET'])
-def userDetail(request, pk):
-	user = User.objects.get(id=pk)
+def userDetail(request, username):
+	user = User.objects.get(username=username)
 	serializer = UserSerializer(user, many=False)
 	return Response(serializer.data)
 
