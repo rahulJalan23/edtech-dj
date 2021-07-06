@@ -65,7 +65,7 @@ class Timetable(models.Model):
 class Day(models.Model):
     pass
 
-class Period(models,Model):
+class Period(models.Model):
     pass
 
 
