@@ -274,6 +274,17 @@ class TextbookList(ListAPIView):
 	serializer_class = TextbookSerializer
 	pagination_class = ResultsSetPagination
 
+	def get_queryset(self):
+		queryset = Textbook.objects.all()
+		subject_code = self.request.query_params.get('subject_code')
+		# airline = self.request.query_params.get('airline')
+
+		if subject_code:
+			queryset = queryset.filter(subject_code=subject_code)
+
+		return queryset
+
+
 	# def get(self, request, format=None):
 		# textbooks = Textbook.objects.all()
 		# serializer = TextbookSerializer(textbooks, many=True)
