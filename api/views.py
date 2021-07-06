@@ -53,7 +53,7 @@ def apiOverview(request):
 class ResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
-    max_page_size = 50
+    max_page_size = 1000
 
 
 
@@ -277,7 +277,7 @@ class TextbookList(ListAPIView):
 	pagination_class = ResultsSetPagination
 
 	filter_backends = [DjangoFilterBackend]
-	filterset_fields = ['subject_code', 'branch_code', 'course_code', 'year']
+	filterset_fields = ['subject_code', 'branch_code', 'course_code', 'year',]
 
 	# def get_queryset(self):
 	# 	queryset = Textbook.objects.all()

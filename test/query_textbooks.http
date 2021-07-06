@@ -1,7 +1,7 @@
 GET http://127.0.0.1:8000/api/textbook-list/
     ?page=1
-    &page_size=20
-    &subject_code=MA100
+    
+
 content-type: application/json
 
 ###
