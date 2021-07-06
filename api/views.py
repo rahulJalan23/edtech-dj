@@ -1,6 +1,8 @@
 from typing import List
 from rest_framework import serializers
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 from django.shortcuts import render
 from django.http import JsonResponse, Http404
 import rest_framework
@@ -274,15 +276,24 @@ class TextbookList(ListAPIView):
 	serializer_class = TextbookSerializer
 	pagination_class = ResultsSetPagination
 
-	def get_queryset(self):
-		queryset = Textbook.objects.all()
-		subject_code = self.request.query_params.get('subject_code')
-		# airline = self.request.query_params.get('airline')
+	filter_backends = [DjangoFilterBackend]
+	filterset_fields = ['subject_code', 'branch_code', 'course_code', 'year']
 
-		if subject_code:
-			queryset = queryset.filter(subject_code=subject_code)
+	# def get_queryset(self):
+	# 	queryset = Textbook.objects.all()
+	# 	subject_code = self.request.query_params.get('subject_code')
+	# 	branch_code = self.request.query_params.get('branch_code')
+	# 	course_code = self.request.query_params.get('course_code')
+	# 	year = self.request.query_params.get('year')
+	# 	# airline = self.request.query_params.get('airline')
 
-		return queryset
+	# 	if subject_code and branch_code and course_code and year:
+	# 		queryset = queryset.filter(subject_code=subject_code,
+	# 		branch_code=branch_code,
+	# 		course_code=course_code,
+	# 		year=year)
+
+	# 	return queryset
 
 
 	# def get(self, request, format=None):

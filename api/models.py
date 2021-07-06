@@ -23,7 +23,7 @@ MODELS:
 class Subject(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
-    code = models.CharField(max_length=6)
+    subject_code = models.CharField(max_length=6)
 
     def __str__(self):
         return self.code
@@ -32,6 +32,7 @@ class Subject(models.Model):
 class Branch(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
+    branch_code = models.CharField(max_length=6, default="")
 
     def __str__(self):
         return self.name
@@ -40,6 +41,7 @@ class Branch(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
+    course_code = models.CharField(max_length=10, default="")
 
     def __str__(self):
         return self.name
@@ -52,6 +54,9 @@ class Textbook(models.Model):
     cover_image = models.URLField(max_length=200)
     subject = models.CharField(max_length=40)
     subject_code = models.CharField(max_length=6, default="")
+    branch_code = models.CharField(max_length=6, default="")
+    course_code = models.CharField(max_length=10, default="")
+    year = models.CharField(max_length=8, default="")
     posted_by = models.CharField(max_length=20)
     date_posted = models.DateTimeField(default=timezone.now)
     description = models.TextField()
