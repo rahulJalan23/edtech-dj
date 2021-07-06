@@ -51,7 +51,7 @@ class Textbook(models.Model):
     link = models.URLField(max_length=200)
     cover_image = models.URLField(max_length=200)
     subject = models.CharField(max_length=40)
-    # subject_code = models.CharField(max_length=6)
+    subject_code = models.CharField(max_length=6, default="")
     posted_by = models.CharField(max_length=20)
     date_posted = models.DateTimeField(default=timezone.now)
     description = models.TextField()
@@ -59,14 +59,14 @@ class Textbook(models.Model):
     def __str__(self):
         return self.title
 
-class Timetable(models.Model):
-    pass
+# class Timetable(models.Model):
+#     pass
 
-class Day(models.Model):
-    pass
+# class Day(models.Model):
+#     pass
 
-class Period(models.Model):
-    pass
+# class Period(models.Model):
+#     pass
 
 
 """
