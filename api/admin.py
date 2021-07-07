@@ -10,10 +10,29 @@ class TimetableAdmin(admin.ModelAdmin):
     ]
 
 
+class TextbookInline(admin.StackedInline):
+    model = Textbook
+    fields = ['title']
+
+class SubjectAdmin(admin.ModelAdmin):
+    inlines = [
+        TextbookInline
+    ]
+
+class CourseAdmin(admin.ModelAdmin):
+    inlines = [
+        TextbookInline
+    ]  
+
+class BranchAdmin(admin.ModelAdmin):
+    inlines = [
+        TextbookInline
+    ] 
+
 admin.site.register(Textbook)
-admin.site.register(Subject)
-admin.site.register(Course)
-admin.site.register(Branch)
+admin.site.register(Subject, SubjectAdmin)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Branch, BranchAdmin)
 admin.site.register(Lecture)
 admin.site.register(Timetable, TimetableAdmin)
 

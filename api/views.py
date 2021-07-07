@@ -279,7 +279,7 @@ class TextbookList(ListAPIView):
 	pagination_class = ResultsSetPagination
 
 	filter_backends = [DjangoFilterBackend]
-	filterset_fields = ['subject_code', 'branch_code', 'course_code', 'year',]
+	filterset_fields = ['subject', 'branch', 'course', 'year',]
 
 	# def get_queryset(self):
 	# 	queryset = Textbook.objects.all()

@@ -2,50 +2,54 @@ from django.db import models
 from django.db.models.aggregates import Max
 from django.db.models.base import Model
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 """
 MODELS:
     - SUBJECT:
-        fields : name, description, code.
+        fields : name, description, subject_code.
 
     - BRANCHES: 
-        fields : name, description
+        fields : name, description, branch_code.
 
     - COURSE:
-        fields : name, description
+        fields : name, description, course_code
 
     - TEXTBOOK:
-        fields : title, description, author, link, cover_image, subject, date_posted, posted_by.
+        fields : title, author, link, cover_image, subject, date_posted, posted_by, description.
 
 """
 
 class Subject(models.Model):
+
+    """Model for all the Subjects"""
+
     name = models.CharField(max_length=150)
     description = models.TextField()
-    subject_code = models.CharField(max_length=6)
+    subject_code = models.CharField(max_length=8, unique=True, primary_key=True)
 
     def __str__(self):
-        return self.subject_code
+        return f"{self.subject_code}: {self.name}"
 
 
 class Branch(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
-    branch_code = models.CharField(max_length=6, default="")
+    branch_code = models.CharField(max_length=8, unique=True, primary_key=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.branch_code}: {self.name}"
 
 
 class Course(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
-    course_code = models.CharField(max_length=10, default="")
+    course_code = models.CharField(max_length=10, unique=True, primary_key=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.course_code}: {self.name}"
 
 
 class Textbook(models.Model):
@@ -60,12 +64,14 @@ class Textbook(models.Model):
     author = models.CharField(max_length=60)
     link = models.URLField(max_length=200)
     cover_image = models.URLField(max_length=200)
-    subject = models.CharField(max_length=40)
-    subject_code = models.CharField(max_length=6, default="")
-    branch_code = models.CharField(max_length=6, default="")
-    course_code = models.CharField(max_length=10, default="")
+    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="textbooks")
+    # subject_code = models.CharField(max_length=6, default="")
+    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
+    # branch_code = models.CharField(max_length=6, default="")
+    course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
+    # course_code = models.CharField(max_length=10, default="")
     year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
-    posted_by = models.CharField(max_length=20)
+    posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='textbooks')
     date_posted = models.DateTimeField(default=timezone.now)
     description = models.TextField()
 
@@ -82,10 +88,24 @@ class Timetable(models.Model):
         ('FOURTH', 'FOURTH'),
     ]
 
+    SEMESTERS = [
+        ('SEM_1', "I Semester"),
+        ('SEM_2', "II Semester"),
+        ('SEM_3', "III Semester"),
+        ('SEM_4', "IV Semester"),
+        ('SEM_5', "V Semester"),
+        ('SEM_6', "VI Semester"),
+        ('SEM_7', "VII Semester"),
+        ('SEM_8', "VIII Semester"),
+        ]
+
     title = models.CharField(max_length=150)
-    branch_code = models.CharField(max_length=6, default="")
-    course_code = models.CharField(max_length=10, default="")
+    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="timetables")
+    # branch_code = models.CharField(max_length=6, default="")
+    course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="timetables")
+    # course_code = models.CharField(max_length=10, default="")
     year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
+    semester = models.CharField(max_length=5,choices=SEMESTERS, default='FIRST')
 
     def __str__(self):
         return self.title
@@ -102,7 +122,7 @@ class Lecture(models.Model):
         ('SUN', 'Sunday'),
     ]
 
-    day = models.CharField(max_length=10, choices=DAYS, default='')
+    day = models.CharField(max_length=3, choices=DAYS, default='MON')
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -132,3 +152,5 @@ Timetable
     wed: ,
 }
 """
+
+
