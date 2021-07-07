@@ -5,7 +5,9 @@ from django.contrib.auth.models import User
 from .models import (Subject,
                      Branch,
                      Course,
-                     Textbook,)
+                     Textbook,
+                     Timetable,
+                     Lecture)
 
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,4 +37,16 @@ class UserSerializer(serializers.ModelSerializer):
 class TextbookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Textbook 
+        fields = '__all__'
+
+
+class TimetableSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Timetable
+        fields = '__all__'
+    
+
+class LectureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lecture
         fields = '__all__'

@@ -9,7 +9,7 @@ import rest_framework
 from rest_framework import pagination
 
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, ListCreateAPIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -20,8 +20,10 @@ from django.contrib.auth.models import User
 from .models import (Subject, 
 					Branch, 
 					Course,
-					Textbook)
-from .serializers import (CourseSerializer, 
+					Textbook,
+					Timetable,
+					Lecture)
+from .serializers import (CourseSerializer, LectureSerializer, 
 						  SubjectSerializer,
 						  BranchSerializer,
 						  UserSerializer,
@@ -340,5 +342,9 @@ class TextbookDetail(APIView):
 		return Response(status=status.HTTP_204_NO_CONTENT)
 
 	
+"""Lectures"""
+class LectureList(ListCreateAPIView):
+	queryset = Lecture.objects.all()
+	serializer_class = LectureSerializer
 
 	
