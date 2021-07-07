@@ -34,8 +34,15 @@ from .serializers import (CourseSerializer, LectureSerializer,
 @api_view(['GET'])
 def apiOverview(request):
 	api_urls = {
-		'List Textbooks':'/textbook-list/',
-		'Textbook Detail View':'/textbook-detail/<str:pk>/',
+		'List Textbooks':{
+			'path': '/textbook-list/',
+			'params': ['subject', 'branch', 'course', 'year', 'page_size', 'page', 'format'],
+			'methods': ['GET', 'POST']
+			},
+		'Textbook Detail View':{
+			'path':'/textbook-detail/<str:pk>/',
+			'methods': ['GET', 'PUT', 'DELETE']
+			},
         'List Teachers': '/teacher-list/',
         'Teacher Detail View': '/teacher-detail/<str:pk>/',
         'List Courses':'/course-list/',
