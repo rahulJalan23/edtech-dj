@@ -135,6 +135,9 @@ class SubjectList(ListAPIView):
 	serializer_class = SubjectSerializer
 	pagination_class = ResultsSetPagination
 
+	filter_backends = [DjangoFilterBackend]
+	filterset_fields = ['year',]
+
 	
 	def post(self, request, format=None):
 		serializer = SubjectSerializer(data=request.data)

@@ -26,9 +26,17 @@ class Subject(models.Model):
 
     """Model for all the Subjects"""
 
+    YEARS = [
+        ('FIRST', 'FIRST'),
+        ('SECOND', 'SECOND'),
+        ('THIRD', 'THIRD'),
+        ('FOURTH', 'FOURTH'),
+    ]
+
     name = models.CharField(max_length=150)
     description = models.TextField()
     subject_code = models.CharField(max_length=8, unique=True, primary_key=True)
+    year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
 
     def __str__(self):
         return f"{self.subject_code}: {self.name}"
