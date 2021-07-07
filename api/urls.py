@@ -13,4 +13,6 @@ urlpatterns = [
     path('user-detail/<str:username>/', views.userDetail, name="user-detail"),
     path('textbook-list/', views.TextbookList.as_view(), name='textbook-list'),
     path('textbook-detail/<str:pk>/', views.TextbookDetail.as_view(), name='textbook-detail'),
+    path('lecture-list/', views.LectureList.as_view(), name='lecture-list'),
+    path('timetable-list/', views.TimetableList.as_view(), name='timetable-list'),
 ]

@@ -25,7 +25,7 @@ from .models import (Subject,
 					Lecture)
 from .serializers import (CourseSerializer, LectureSerializer, 
 						  SubjectSerializer,
-						  BranchSerializer,
+						  BranchSerializer, TimetableSerializer,
 						  UserSerializer,
 						  TextbookSerializer)
 
@@ -356,5 +356,12 @@ class TextbookDetail(APIView):
 class LectureList(ListCreateAPIView):
 	queryset = Lecture.objects.all()
 	serializer_class = LectureSerializer
+	pagination_class = ResultsSetPagination
+
+
+class TimetableList(ListCreateAPIView):
+	queryset = Timetable.objects.all()
+	serializer_class = TimetableSerializer
+	pagination_class = ResultsSetPagination
 
 	

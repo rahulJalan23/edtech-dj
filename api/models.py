@@ -135,7 +135,7 @@ class Lecture(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
     teacher = models.CharField(max_length=60)
-    timetables = models.ManyToManyField(Timetable, related_name='lectures')
+    timetables = models.ManyToManyField(Timetable, related_name='lectures', blank=True, null=True)
 
 
     def __str__(self):
