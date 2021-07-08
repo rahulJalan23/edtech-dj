@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import (Day, Portion, 
+from .models import (Day, Material, Portion, 
                      Subject,
                      Branch,
                      Course,
@@ -71,6 +71,12 @@ class PortionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Portion
+        fields = '__all__'
+
+
+class MaterialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Material 
         fields = '__all__'
 
     

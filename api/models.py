@@ -159,6 +159,30 @@ class Portion(models.Model):
         return f"Syllabus for {self.subject.subject_code} of {self.college}"
 
 
+class Material(models.Model):
+    YEARS = [
+        ('FIRST', 'FIRST'),
+        ('SECOND', 'SECOND'),
+        ('THIRD', 'THIRD'),
+        ('FOURTH', 'FOURTH'),
+    ]
+
+    title = models.CharField(max_length=150)
+    link = models.URLField(max_length=200)
+    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="materials")
+    # subject_code = models.CharField(max_length=6, default="")
+    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    # branch_code = models.CharField(max_length=6, default="")
+    course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    # course_code = models.CharField(max_length=10, default="")
+    year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
+    posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='materials')
+    date_posted = models.DateTimeField(default=timezone.now)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title    
+
 """
 Timetable
 {

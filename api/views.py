@@ -17,14 +17,14 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework import status
 
 from django.contrib.auth.models import User
-from .models import (Day, Portion, Subject, 
+from .models import (Day, Material, Portion, Subject, 
 					Branch, 
 					Course,
 					Textbook,
 					Timetable,
 					Lecture)
 from .serializers import (CourseSerializer, 
-						  DaySerializer, PortionSerializer, 
+						  DaySerializer, MaterialSerializer, PortionSerializer, 
 						  SubjectSerializer,
 						  BranchSerializer,
 						  UserSerializer,
@@ -383,7 +383,16 @@ class PortionList(ListCreateAPIView):
 	filterset_fields = ['subject', 'college', 'link',]
 
 
+class MaterialList(ListCreateAPIView):
+	"""
+	List all Materials [GET] 
+	"""
+	queryset = Material.objects.all()
+	serializer_class = MaterialSerializer
+	pagination_class = ResultsSetPagination
 
+	filter_backends = [DjangoFilterBackend]
+	filterset_fields = ['subject', 'branch', 'course', 'year',]
 
 
 """

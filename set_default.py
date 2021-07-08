@@ -63,9 +63,9 @@ def populate_textbooks(TextbookClass, branches, courses, subjects, users, jsonFi
     for book in dict_data:
         textbook = TextbookClass(
             title = book['title'],
-            author = book['author'],
-            link = book['link'],
-            cover_image = book['cover_image'],
+            # author = book['author'],
+            link ="https://drive.google.com/file/d/1MewBpDc6Y5_9-ZluGARQG04T75xhVjzV/view",
+            # cover_image = book['cover_image'],
             subject = random.choice(subjects.objects.all()),
             branch = random.choice(branches.objects.all()),
             course = random.choice(courses.objects.all()),
