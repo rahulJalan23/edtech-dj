@@ -1,5 +1,6 @@
 from typing import List
 from rest_framework import serializers
+from rest_framework import filters
 
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -138,8 +139,9 @@ class SubjectList(ListAPIView):
 	serializer_class = SubjectSerializer
 	pagination_class = ResultsSetPagination
 
-	filter_backends = [DjangoFilterBackend]
+	filter_backends = [DjangoFilterBackend, filters.SearchFilter, ]
 	filterset_fields = ['year',]
+	search_fields = ['name', 'subject_code']
 
 	
 	def post(self, request, format=None):
