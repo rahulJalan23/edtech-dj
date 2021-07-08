@@ -17,17 +17,20 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework import status
 
 from django.contrib.auth.models import User
-from .models import (Subject, 
+from .models import (Day, Subject, 
 					Branch, 
 					Course,
 					Textbook,
 					Timetable,
 					Lecture)
 from .serializers import (CourseSerializer, 
+						  DaySerializer, 
 						  SubjectSerializer,
 						  BranchSerializer,
 						  UserSerializer,
-						  TextbookSerializer)
+						  TextbookSerializer,
+						  LectureSerializer,
+						  TimetableSerializer)
 
 # Create your views here.
 
@@ -353,15 +356,21 @@ class TextbookDetail(APIView):
 
 	
 # """Lectures"""
-# class LectureList(ListCreateAPIView):
-# 	queryset = Lecture.objects.all()
-# 	serializer_class = LectureSerializer
-# 	pagination_class = ResultsSetPagination
+class LectureList(ListCreateAPIView):
+	queryset = Lecture.objects.all()
+	serializer_class = LectureSerializer
+	pagination_class = ResultsSetPagination
 
 
-# class TimetableList(ListCreateAPIView):
-# 	queryset = Timetable.objects.all()
-# 	serializer_class = TimetableSerializer
-# 	pagination_class = ResultsSetPagination
+class DayList(ListCreateAPIView):
+	queryset = Day.objects.all()
+	serializer_class = DaySerializer
+	pagination_class = ResultsSetPagination
+
+
+class TimetableList(ListCreateAPIView):
+	queryset = Timetable.objects.all()
+	serializer_class = TimetableSerializer
+	pagination_class = ResultsSetPagination
 
 	
