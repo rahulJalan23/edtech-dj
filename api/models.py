@@ -150,6 +150,15 @@ class Lecture(models.Model):
         return f"Lecture on {self.subject.subject_code} by {self.teacher} ( {self.start_time} - {self.end_time} )"
 
 
+class Portion(models.Model):
+    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING)
+    college = models.CharField(max_length=100)
+    link = models.URLField(max_length=200)
+
+    def __str__(self):
+        return f"Syllabus for {self.subject.subject_code} of {self.college}"
+
+
 """
 Timetable
 {

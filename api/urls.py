@@ -16,4 +16,5 @@ urlpatterns = [
     path('lecture-list/', views.LectureList.as_view(), name='lecture-list'),
     path('day-list/', views.DayList.as_view(), name='day-list'),
     path('timetable-list/', views.TimetableList.as_view(), name='timetable-list'),
+    path('portion-list/', views.PortionList.as_view(), name='portion-list'),
 ]

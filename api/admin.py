@@ -54,6 +54,7 @@ admin.site.register(Textbook)
 admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Branch, BranchAdmin)
+admin.site.register(Portion)
 
 admin.site.register(Lecture)
 admin.site.register(Day, DayAdmin)

@@ -17,14 +17,14 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework import status
 
 from django.contrib.auth.models import User
-from .models import (Day, Subject, 
+from .models import (Day, Portion, Subject, 
 					Branch, 
 					Course,
 					Textbook,
 					Timetable,
 					Lecture)
 from .serializers import (CourseSerializer, 
-						  DaySerializer, 
+						  DaySerializer, PortionSerializer, 
 						  SubjectSerializer,
 						  BranchSerializer,
 						  UserSerializer,
@@ -373,4 +373,25 @@ class TimetableList(ListCreateAPIView):
 	serializer_class = TimetableSerializer
 	pagination_class = ResultsSetPagination
 
-	
+
+class PortionList(ListCreateAPIView):
+	queryset = Portion.objects.all()
+	serializer_class = PortionSerializer
+	pagination_class = ResultsSetPagination
+
+	filter_backends = [DjangoFilterBackend]
+	filterset_fields = ['subject', 'college', 'link',]
+
+
+
+
+
+"""
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+"""

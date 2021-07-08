@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import (Day, 
+from .models import (Day, Portion, 
                      Subject,
                      Branch,
                      Course,
@@ -64,6 +64,13 @@ class TimetableSerializer(serializers.ModelSerializer):
     days = DaySerializer(many=True, read_only=True)
     class Meta:
         model = Timetable
+        fields = '__all__'
+
+
+class PortionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Portion
         fields = '__all__'
 
     
