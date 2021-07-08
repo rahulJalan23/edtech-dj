@@ -1,6 +1,8 @@
+import datetime
 from django.db import models
 from django.db.models.aggregates import Max
 from django.db.models.base import Model
+from django.db.models.deletion import CASCADE
 from django.utils import timezone
 from django.contrib.auth.models import User
 
@@ -119,7 +121,7 @@ class Timetable(models.Model):
         return self.title
 
 
-class Lecture(models.Model):
+class Day(models.Model):
     DAYS = [
         ('MON', 'Monday'),
         ('TUE', 'Tuesday'),
@@ -129,17 +131,23 @@ class Lecture(models.Model):
         ('SAT', 'Saturday'),
         ('SUN', 'Sunday'),
     ]
-
     day = models.CharField(max_length=3, choices=DAYS, default='MON')
+    timetable = models.ForeignKey(Timetable, on_delete=CASCADE, related_name='days', blank=False)
+
+    def __str__(self):
+        return f"{self.day} in {self.timetable.title}."
+
+
+class Lecture(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     start_time = models.TimeField()
     end_time = models.TimeField()
     teacher = models.CharField(max_length=60)
-    timetables = models.ManyToManyField(Timetable, related_name='lectures', blank=True, null=True)
+    days = models.ManyToManyField(Day, related_name='lectures', blank=True)
 
 
     def __str__(self):
-        return f"Lecture on {self.subject.subject_code} by {self.teacher} ( {self.day}, {self.start_time} - {self.end_time})"
+        return f"Lecture on {self.subject.subject_code} by {self.teacher} ( {self.start_time} - {self.end_time} )"
 
 
 """

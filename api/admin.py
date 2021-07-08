@@ -1,13 +1,34 @@
 from django.contrib import admin
 from .models import *
+from nested_admin import NestedModelAdmin, NestedStackedInline, NestedTabularInline
 
-class LectureInline(admin.TabularInline):
-    model = Timetable.lectures.through
 
-class TimetableAdmin(admin.ModelAdmin):
+class LectureTabularInline(NestedTabularInline):
+    model = Day.lectures.through
+    extra = 1
+
+class DayTabularInline(NestedTabularInline):
+    model = Day
+    extra = 1
+    inlines = [LectureTabularInline,]
+
+
+class TimetabelAdmin(NestedModelAdmin):
+    inlines = [DayTabularInline,]
+
+
+class DayAdmin(admin.ModelAdmin):
     inlines = [
-        LectureInline,
+        LectureTabularInline
     ]
+
+# class DayInline(admin.TabularInline):
+#     model = Day
+
+# class TimetableAdmin(admin.ModelAdmin):
+#     inlines = [
+#         DayInline,
+#     ]
 
 
 class TextbookInline(admin.StackedInline):
@@ -33,7 +54,12 @@ admin.site.register(Textbook)
 admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Branch, BranchAdmin)
-admin.site.register(Lecture)
-admin.site.register(Timetable, TimetableAdmin)
 
+admin.site.register(Lecture)
+admin.site.register(Day, DayAdmin)
+admin.site.register(Timetable, TimetabelAdmin)
+
+
+
+# admin.site.register(Timetable, TimetableAdmin)
 # Register your models here.

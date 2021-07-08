@@ -23,9 +23,9 @@ from .models import (Subject,
 					Textbook,
 					Timetable,
 					Lecture)
-from .serializers import (CourseSerializer, LectureSerializer, 
+from .serializers import (CourseSerializer, 
 						  SubjectSerializer,
-						  BranchSerializer, TimetableSerializer,
+						  BranchSerializer,
 						  UserSerializer,
 						  TextbookSerializer)
 
@@ -352,16 +352,16 @@ class TextbookDetail(APIView):
 		return Response(status=status.HTTP_204_NO_CONTENT)
 
 	
-"""Lectures"""
-class LectureList(ListCreateAPIView):
-	queryset = Lecture.objects.all()
-	serializer_class = LectureSerializer
-	pagination_class = ResultsSetPagination
+# """Lectures"""
+# class LectureList(ListCreateAPIView):
+# 	queryset = Lecture.objects.all()
+# 	serializer_class = LectureSerializer
+# 	pagination_class = ResultsSetPagination
 
 
-class TimetableList(ListCreateAPIView):
-	queryset = Timetable.objects.all()
-	serializer_class = TimetableSerializer
-	pagination_class = ResultsSetPagination
+# class TimetableList(ListCreateAPIView):
+# 	queryset = Timetable.objects.all()
+# 	serializer_class = TimetableSerializer
+# 	pagination_class = ResultsSetPagination
 
 	

@@ -46,16 +46,17 @@ class TimetableSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 
-class LectureSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Lecture
-        fields = '__all__'
+# class LectureSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Lecture
+#         fields = ['day', 'subject', 'start_time', 'end_time', 'teacher']
+ 
 
+# class TimetableSerializer(serializers.ModelSerializer):
+#     lectures = LectureSerializer(many=True, read_only=True)
+#     class Meta:
+#         model = Timetable
+#         fields = '__all__'
 
-class TimetableSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Timetable
-        fields = '__all__'
-
-    lectures = LectureSerializer(many=True, read_only=True)
+    
 

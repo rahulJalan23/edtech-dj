@@ -1,6 +1,7 @@
 from api.models import Textbook
 import random
 import json
+import datetime
 
 def populate_users(UserClass, jsonFilePath):
     json_data = open(jsonFilePath, 'r')
@@ -73,3 +74,17 @@ def populate_textbooks(TextbookClass, branches, courses, subjects, users, jsonFi
             description = book['description'],
         )
         textbook.save()
+
+
+def populate_lectures(LectureClass, SubjectClass, jsonFilePath):
+    json_data = open(jsonFilePath, 'r')
+    dict_data = json.load(json_data)
+
+    for lec in dict_data:
+        lecture = LectureClass(
+            subject=SubjectClass.objects.get(subject_code=lec['subject']),
+            start_time=datetime.datetime.strptime(lec['start_time'], '%H:%M:%S').time(),
+            end_time=datetime.datetime.strptime(lec['end_time'], '%H:%M:%S').time(),
+            teacher=lec['teacher']
+        )
+        lecture.save()
