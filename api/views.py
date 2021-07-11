@@ -18,20 +18,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework import status
 
 from django.contrib.auth.models import User
-from .models import (Day, Material, Portion, Subject, 
-					Branch, 
-					Course,
-					Textbook,
-					Timetable,
-					Lecture)
-from .serializers import (CourseSerializer, 
-						  DaySerializer, MaterialSerializer, PortionSerializer, 
-						  SubjectSerializer,
-						  BranchSerializer,
-						  UserSerializer,
-						  TextbookSerializer,
-						  LectureSerializer,
-						  TimetableSerializer)
+from .models import *
+from .serializers import *
 
 # Create your views here.
 
@@ -397,6 +385,30 @@ class MaterialList(ListCreateAPIView):
 	filterset_fields = ['subject', 'branch', 'course', 'year',]
 
 
+# class CollegeList(ListCreateAPIView):
+# 	"""
+# 	List all Materials [GET] 
+# 	"""
+# 	queryset = College.objects.all()
+# 	serializer_class = CollegeSerializer
+# 	pagination_class = ResultsSetPagination
+
+# 	filter_backends = [DjangoFilterBackend]
+# 	filterset_fields = ['college_code']
+
+
+# class FacultyList(ListCreateAPIView):
+# 	"""
+# 	List all Materials [GET] 
+# 	"""
+# 	queryset = Faculty.objects.all()
+# 	serializer_class = FacultySerializer
+# 	pagination_class = ResultsSetPagination
+
+# 	filter_backends = [DjangoFilterBackend]
+# 	filterset_fields = ['branch', 'is_teaching_staff']
+
+
 """
 service firebase.storage {
   match /b/{bucket}/o {
@@ -405,4 +417,4 @@ service firebase.storage {
     }
   }
 }
-"""
+""" 

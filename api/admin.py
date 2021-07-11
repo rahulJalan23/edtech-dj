@@ -61,6 +61,9 @@ admin.site.register(Day, DayAdmin)
 admin.site.register(Timetable, TimetabelAdmin)
 
 
+admin.site.register(College)
+admin.site.register(Faculty)
+
 
 # admin.site.register(Timetable, TimetableAdmin)
 # Register your models here.

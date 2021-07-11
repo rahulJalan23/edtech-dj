@@ -5,6 +5,7 @@ from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
@@ -13,7 +14,7 @@ MODELS:
     - SUBJECT:
         fields : name, description, subject_code.
 
-    - BRANCHES: 
+    - BRANCH: 
         fields : name, description, branch_code.
 
     - COURSE:
@@ -21,6 +22,27 @@ MODELS:
 
     - TEXTBOOK:
         fields : title, author, link, cover_image, subject, date_posted, posted_by, description.
+
+    - TIMETABLE:
+        fields : 
+
+    - DAY:
+        fields : 
+
+    - LECTURE:
+        fields : 
+
+    - PORTION:
+        fields : 
+    
+    - MATERIAL:
+        fields : 
+
+    - COLLEGE:
+        fields : 
+
+    - FACULTY:
+        fields : name, designation, email, phone_number, description, is_teaching_staff
 
 """
 
@@ -150,9 +172,24 @@ class Lecture(models.Model):
         return f"Lecture on {self.subject.subject_code} by {self.teacher} ( {self.start_time} - {self.end_time} )"
 
 
+
+
+class College(models.Model):
+    college_code = models.CharField(max_length=12, unique=True, primary_key=True)    
+    name = models.CharField(max_length=150)
+    description = models.TextField()
+    location = models.CharField(max_length=30)
+    college_image = models.URLField(max_length=200, blank=True)
+    link_image = models.URLField(max_length=200, blank=True)
+    website_link = models.URLField(max_length=200, blank=True)
+
+    def __str__(self):
+        return self.name
+        
+
 class Portion(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING)
-    college = models.CharField(max_length=100)
+    college = models.ForeignKey(College, on_delete=models.DO_NOTHING)
     link = models.URLField(max_length=200)
 
     def __str__(self):
@@ -183,23 +220,21 @@ class Material(models.Model):
     def __str__(self):
         return self.title    
 
-"""
-Timetable
-{
-    Mon : [
-        {
-            'subject_code': ,
-            'from': ,
-            'to': ,
-            'teacher':
-        },
-        {},
-        {},
-        {},      
-    ],
-    Tue: ,
-    wed: ,
-}
-"""
+
+class Faculty(models.Model):
+    name = models.CharField(max_length=50)
+    designation = models.CharField(max_length=80)
+    email = models.EmailField(max_length=254)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
+    description = models.TextField()
+    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, blank=False, related_name='faculty')
+    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, blank=False, related_name='faculty')
+    is_teaching_staff = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+
 
 

@@ -2,13 +2,7 @@ from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import (Day, Material, Portion, 
-                     Subject,
-                     Branch,
-                     Course,
-                     Textbook,
-                     Timetable,
-                     Lecture)
+from .models import *
 
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
