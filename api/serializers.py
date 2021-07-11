@@ -1,3 +1,4 @@
+from django.core.exceptions import FieldError
 from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
@@ -76,6 +77,12 @@ class MaterialSerializer(serializers.ModelSerializer):
 class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
         model = College
+        fields = '__all__'
+
+
+class FacultySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Faculty
         fields = '__all__'
 
     

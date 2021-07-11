@@ -398,16 +398,17 @@ class CollegeList(ListCreateAPIView):
 	search_fields = ['name', 'college_code', 'location', 'description',]
 
 
-# class FacultyList(ListCreateAPIView):
-# 	"""
-# 	List all Materials [GET] 
-# 	"""
-# 	queryset = Faculty.objects.all()
-# 	serializer_class = FacultySerializer
-# 	pagination_class = ResultsSetPagination
+class FacultyList(ListCreateAPIView):
+	"""
+	List all Materials [GET] 
+	"""
+	queryset = Faculty.objects.all()
+	serializer_class = FacultySerializer
+	pagination_class = ResultsSetPagination
 
-# 	filter_backends = [DjangoFilterBackend]
-# 	filterset_fields = ['branch', 'is_teaching_staff']
+	filter_backends = [DjangoFilterBackend, filters.SearchFilter,]
+	filterset_fields = ['branch', 'is_teaching_staff', 'college',]
+	search_fields = ['name', 'designation',]
 
 
 """
