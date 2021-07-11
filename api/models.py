@@ -185,7 +185,7 @@ class College(models.Model):
 
     def __str__(self):
         return self.name
-        
+
 
 class Portion(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING)

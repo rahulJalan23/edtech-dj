@@ -73,5 +73,10 @@ class MaterialSerializer(serializers.ModelSerializer):
         model = Material 
         fields = '__all__'
 
+class CollegeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = College
+        fields = '__all__'
+
     
 

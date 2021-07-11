@@ -18,4 +18,5 @@ urlpatterns = [
     path('timetable-list/', views.TimetableList.as_view(), name='timetable-list'),
     path('portion-list/', views.PortionList.as_view(), name='portion-list'),
     path('material-list/', views.MaterialList.as_view(), name='material-list'),
+    path('college-list/', views.CollegeList.as_view(), name='college-list'),
 ]
