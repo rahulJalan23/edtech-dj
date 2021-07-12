@@ -236,5 +236,35 @@ class Faculty(models.Model):
         return self.name
 
 
+class Profile(models.Model):
+    GENDER_CHOICES = (
+        (0, 'male'),
+        (1, 'female'),
+        (2, 'not specified'),
+    )
+    YEARS = [
+        ('FIRST', 'FIRST'),
+        ('SECOND', 'SECOND'),
+        ('THIRD', 'THIRD'),
+        ('FOURTH', 'FOURTH'),
+    ]
+    SEM = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8)]
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    branch = models.CharField(max_length=60, null=True)
+    sem = models.IntegerField(choices=SEM, default=1)
+    year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
+    college_name = models.CharField(
+        max_length=100, default='National Institute Of Technology, Goa')
+    age = models.IntegerField()
+    sex = models.IntegerField(choices=GENDER_CHOICES, default=2)
+    dob = models.DateField(null=True)
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(
+        validators=[phone_regex], max_length=17, blank=True)
+    is_student = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"Profile for {user.first_name} {user.last_name}"
 
