@@ -1,4 +1,3 @@
-from typing import List
 from rest_framework import serializers
 from rest_framework import filters
 
@@ -10,7 +9,9 @@ import rest_framework
 from rest_framework import pagination
 
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView, ListCreateAPIView
+from rest_framework.generics import (ListAPIView, 
+									 ListCreateAPIView, 
+									 RetrieveUpdateDestroyAPIView)
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -35,8 +36,12 @@ def apiOverview(request):
 			'path':'/textbook-detail/<str:pk>/',
 			'methods': ['GET', 'PUT', 'DELETE']
 			},
-        'List Teachers': '/teacher-list/',
-        'Teacher Detail View': '/teacher-detail/<str:pk>/',
+        'List Teachers':{
+			'path': '/faculty-list/',
+			'params': ['branch', 'is_teaching_staff', 'college', 'page_size', 'page', 'format', 'search'],
+			'search_fields' : ['name', 'designation'],
+			'methods': ['GET']
+			},
         'List Courses':'/course-list/',
 		'Course Detail View':'/course-detail/<str:pk>/',
         'List Branches':'/branch-list/',
@@ -50,57 +55,15 @@ def apiOverview(request):
 	return Response(api_urls)
 
 
-# utility
+# utility classes
 class ResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
     max_page_size = 1000
 
+# end utility classes
 
-
-# @api_view(['GET'])
-# def subjectList(request):
-# 	subjects = Subject.objects.all()
-# 	serializer = SubjectSerializer(subjects, many=True)
-# 	return Response(serializer.data)
-# 	# return JsonResponse(serializer.data, safe=False)
-# 	# return JsonResponse(serializer.data, json_dumps_params={'indent': 2}, safe=False)
-
-
-# @api_view(['GET'])
-# def subjectDetail(request, pk):
-# 	subject = Subject.objects.get(id=pk)
-# 	serializer = SubjectSerializer(subject, many=False)
-# 	return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def branchList(request):
-# 	branches = Branch.objects.all()
-# 	serializer = BranchSerializer(branches, many=True)
-# 	return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def branchDetail(request, pk):
-# 	branch = Branch.objects.get(id=pk)
-# 	serializer = BranchSerializer(branch, many=False)
-# 	return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def courseList(request):
-# 	courses = Course.objects.all()
-# 	serializer = CourseSerializer(courses, many=True)
-# 	return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def courseDetail(request, pk):
-# 	course = Course.objects.get(id=pk)
-# 	serializer = CourseSerializer(course, many=False)
-# 	return Response(serializer.data)
-
+# function based views
 
 @api_view(['GET'])
 def UserList(request):
@@ -115,11 +78,13 @@ def userDetail(request, username):
 	serializer = UserSerializer(user, many=False)
 	return Response(serializer.data)
 
+# end function based views
+
 
 """ Subject """
 class SubjectList(ListAPIView):
 	"""
-	List all Subjects [GET] or create a new Texbook
+	List all Subjects [GET] or create a new Subject [POST]
 	"""
 
 	# return the list of subjects
@@ -143,7 +108,7 @@ class SubjectList(ListAPIView):
 
 class SubjectDetail(APIView):
 	"""
-	Retrieve, update or delete a Subject instance.
+	Retrieve [GET], update [PUT] or delete [DELETE] a Subject instance.
 	"""
 	def get_object(self, pk):
 		try:
@@ -173,7 +138,7 @@ class SubjectDetail(APIView):
 """ Branch """
 class BranchList(ListAPIView):
 	"""
-	List all Subjects [GET] or create a new Branch
+	List all Subjects [GET] or create a new Branch [POST]
 	"""
 
 	# return the list of subjects
@@ -284,28 +249,6 @@ class TextbookList(ListAPIView):
 	filter_backends = [DjangoFilterBackend]
 	filterset_fields = ['subject', 'branch', 'course', 'year',]
 
-	# def get_queryset(self):
-	# 	queryset = Textbook.objects.all()
-	# 	subject_code = self.request.query_params.get('subject_code')
-	# 	branch_code = self.request.query_params.get('branch_code')
-	# 	course_code = self.request.query_params.get('course_code')
-	# 	year = self.request.query_params.get('year')
-	# 	# airline = self.request.query_params.get('airline')
-
-	# 	if subject_code and branch_code and course_code and year:
-	# 		queryset = queryset.filter(subject_code=subject_code,
-	# 		branch_code=branch_code,
-	# 		course_code=course_code,
-	# 		year=year)
-
-	# 	return queryset
-
-
-	# def get(self, request, format=None):
-		# textbooks = Textbook.objects.all()
-		# serializer = TextbookSerializer(textbooks, many=True)
-		# return Response(serializer.data)
-
 	def post(self, request, format=None):
 		serializer = TextbookSerializer(data=request.data)
 		if serializer.is_valid():
@@ -313,7 +256,6 @@ class TextbookList(ListAPIView):
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 class TextbookDetail(APIView):
@@ -370,7 +312,7 @@ class PortionList(ListCreateAPIView):
 	pagination_class = ResultsSetPagination
 
 	filter_backends = [DjangoFilterBackend]
-	filterset_fields = ['subject', 'college', 'link',]
+	filterset_fields = ['subject', 'college',]
 
 
 class MaterialList(ListCreateAPIView):
@@ -410,13 +352,3 @@ class FacultyList(ListCreateAPIView):
 	filterset_fields = ['branch', 'is_teaching_staff', 'college',]
 	search_fields = ['name', 'designation',]
 
-
-"""
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-""" 
