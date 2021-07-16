@@ -63,6 +63,7 @@ admin.site.register(Timetable, TimetabelAdmin)
 
 admin.site.register(College)
 admin.site.register(Faculty)
+admin.site.register(Gsheettable)
 
 
 # admin.site.register(Timetable, TimetableAdmin)

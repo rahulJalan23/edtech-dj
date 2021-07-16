@@ -332,6 +332,18 @@ class MaterialList(ListCreateAPIView):
 	filterset_fields = ['subject', 'branch', 'course', 'year',]
 
 
+class GsheettableList(ListCreateAPIView):
+	"""
+	List all Materials [GET] 
+	"""
+	queryset = Gsheettable.objects.all()
+	serializer_class = GsheettableSerializer
+	pagination_class = ResultsSetPagination
+
+	filter_backends = [DjangoFilterBackend]
+	filterset_fields = ['college', 'branch', 'year',]
+
+
 class CollegeList(ListCreateAPIView):
 	"""
 	List all Materials [GET] 
