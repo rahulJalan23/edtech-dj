@@ -5,7 +5,16 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import *
 
+
+class PortionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Portion
+        fields = '__all__'
+
 class SubjectSerializer(serializers.ModelSerializer):
+    portions = PortionSerializer(Portion, many=True, read_only=True)
+    # portions = serializers.HyperlinkedRelatedField(many=True, view_name="portion-detail", read_only=True)
     class Meta:
         model = Subject
         fields = '__all__'
@@ -61,12 +70,6 @@ class TimetableSerializer(serializers.ModelSerializer):
         model = Timetable
         fields = '__all__'
 
-
-class PortionSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Portion
-        fields = '__all__'
 
 
 class MaterialSerializer(serializers.ModelSerializer):

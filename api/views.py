@@ -315,6 +315,11 @@ class PortionList(ListCreateAPIView):
 	filterset_fields = ['subject', 'college',]
 
 
+class PortionDetail(RetrieveUpdateDestroyAPIView):
+	queryset = Portion.objects.all()
+	serializer_class = PortionSerializer
+
+
 class MaterialList(ListCreateAPIView):
 	"""
 	List all Materials [GET] 

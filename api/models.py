@@ -72,7 +72,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
     subject_code = models.CharField(max_length=8, unique=True, primary_key=True)
-    college = models.ForeignKey(College, on_delete=DO_NOTHING, related_name='subjects')
+    # college = models.ForeignKey(College, on_delete=DO_NOTHING, related_name='subjects')
     year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
 
     def __str__(self):
@@ -182,7 +182,7 @@ class Lecture(models.Model):
 
 
 class Portion(models.Model):
-    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING)
+    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="portions")
     college = models.ForeignKey(College, on_delete=models.DO_NOTHING)
     link = models.URLField(max_length=200)
 
