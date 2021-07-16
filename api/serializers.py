@@ -88,5 +88,9 @@ class FacultySerializer(serializers.ModelSerializer):
         model = Faculty
         fields = '__all__'
 
-    
+
+class GsheettableSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gsheettable
+        fields = '__all__'
 

@@ -21,4 +21,5 @@ urlpatterns = [
     path('material-list/', views.MaterialList.as_view(), name='material-list'),
     path('college-list/', views.CollegeList.as_view(), name='college-list'),
     path('faculty-list/', views.FacultyList.as_view(), name='faculty-list'),
+    path('gsheettable-list/', views.GsheettableList.as_view(), name='gsheettable-list'),
 ]
