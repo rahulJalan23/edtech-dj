@@ -227,3 +227,22 @@ class Faculty(models.Model):
         return self.name
 
 
+class Gsheettable(models.Model):
+    YEARS = [
+        ('FIRST', 'FIRST'),
+        ('SECOND', 'SECOND'),
+        ('THIRD', 'THIRD'),
+        ('FOURTH', 'FOURTH'),
+    ]
+
+    title = models.CharField(max_length=150)
+    gsheet_src = models.URLField(max_length=250)
+    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="gsheettables")
+    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="gsheettables", blank=True, null=True)
+    year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
+
+
+    def __str__(self):
+        return self.title    
+
+
