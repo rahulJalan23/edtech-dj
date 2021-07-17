@@ -121,7 +121,6 @@ class Textbook(models.Model):
         return self.title
 
 
-
 class Timetable(models.Model):
     YEARS = [
         ('FIRST', 'FIRST'),
@@ -178,7 +177,6 @@ class Lecture(models.Model):
 
     def __str__(self):
         return f"Lecture on {self.subject.subject_code} by {self.teacher} ( {self.start_time} - {self.end_time} )"
-
 
 
 class Portion(models.Model):
