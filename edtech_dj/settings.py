@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'django_filters',
     'corsheaders',
-    'nested_admin'
+    'nested_admin',
 ]
 
 MIDDLEWARE = [
