@@ -1,11 +1,12 @@
 import datetime
 from django.db import models
+from django.db.models import base
 from django.db.models.aggregates import Max
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE, DO_NOTHING
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 
 
 """
@@ -47,12 +48,20 @@ MODELS:
 
 class College(models.Model):
     college_code = models.CharField(max_length=12, unique=True, primary_key=True)    
-    name = models.CharField(max_length=150)
-    description = models.TextField()
-    location = models.CharField(max_length=30)
-    college_image = models.URLField(max_length=200, blank=True)
+    name = models.CharField(max_length=180)
+    established = models.PositiveIntegerField(default=datetime.date.today().year, validators=[MinValueValidator(1900), MaxValueValidator(2050)])    
+    location = models.CharField(max_length=30)    
+    full_address = models.CharField(max_length=200, default="", blank=True)
     link_image = models.URLField(max_length=200, blank=True)
     website_link = models.URLField(max_length=200, blank=True)
+    static_map_src = models.URLField(max_length=330, blank=True)
+    email = models.EmailField(max_length=100, blank=True)
+    linkedin = models.URLField(max_length=60, blank=True)
+    instagram = models.URLField(max_length=60, blank=True)
+    facebook = models.URLField(max_length=60, blank=True)
+    twitter = models.URLField(max_length=60, blank=True)
+    youtube = models.URLField(max_length=60, blank=True)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
