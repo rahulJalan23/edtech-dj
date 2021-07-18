@@ -74,7 +74,7 @@ class College(models.Model):
     facebook = models.URLField(max_length=60, blank=True)
     twitter = models.URLField(max_length=60, blank=True)
     youtube = models.URLField(max_length=60, blank=True)
-    description = models.TextField()
+    description = models.TextField(default="")
 
     def __str__(self):
         return self.name

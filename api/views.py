@@ -1,67 +1,94 @@
-# from rest_framework import serializers
-# from rest_framework import filters
+from rest_framework import serializers
+from rest_framework import filters
 
-# from django_filters.rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend
 
-# from django.shortcuts import render
-# from django.http import JsonResponse, Http404
-# import rest_framework
-# from rest_framework import pagination
+from django.shortcuts import render
+from django.http import JsonResponse, Http404
+import rest_framework
+from rest_framework import pagination
 
-# from rest_framework.views import APIView
-# from rest_framework.generics import (ListAPIView, 
-# 									 ListCreateAPIView, 
-# 									 RetrieveUpdateDestroyAPIView)
-# from rest_framework.pagination import PageNumberPagination
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
-# from rest_framework.renderers import JSONRenderer
-# from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.generics import (ListAPIView, 
+									 ListCreateAPIView, RetrieveAPIView, 
+									 RetrieveUpdateDestroyAPIView)
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
+from rest_framework import status
 
-# from django.contrib.auth.models import User
-# from .models import *
-# from .serializers import *
-
-# # Create your views here.
-
-# @api_view(['GET'])
-# def apiOverview(request):
-# 	api_urls = {
-# 		'List Textbooks':{
-# 			'path': '/textbook-list/',
-# 			'params': ['subject', 'branch', 'course', 'year', 'page_size', 'page', 'format'],
-# 			'methods': ['GET', 'POST']
-# 			},
-# 		'Textbook Detail View':{
-# 			'path':'/textbook-detail/<str:pk>/',
-# 			'methods': ['GET', 'PUT', 'DELETE']
-# 			},
-#         'List Teachers':{
-# 			'path': '/faculty-list/',
-# 			'params': ['branch', 'is_teaching_staff', 'college', 'page_size', 'page', 'format', 'search'],
-# 			'search_fields' : ['name', 'designation'],
-# 			'methods': ['GET']
-# 			},
-#         'List Courses':'/course-list/',
-# 		'Course Detail View':'/course-detail/<str:pk>/',
-#         'List Branches':'/branch-list/',
-# 		'Branche Detail View':'/branch-detail/<str:pk>/',
-#         'List Subjects': '/subject-list/',
-#         'Subject Detail View':'/subject-detail/<str:pk>/',
-# 		'List Users': '/user-list/',
-#         'User Detail View':'/user-detail/<str:username>/',
-# 	}
-
-# 	return Response(api_urls)
+from django.contrib.auth.models import User
+from .models import *
+from .serializers import *
 
 
-# # utility classes
-# class ResultsSetPagination(PageNumberPagination):
-#     page_size = 10
-#     page_size_query_param = 'page_size'
-#     max_page_size = 1000
 
-# # end utility classes
+# utility classes
+class ResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
+# end utility classes
+
+
+@api_view(['GET'])
+def apiOverview(request):
+	api_urls = {
+		'List Textbooks':{
+			'path': '/textbook-list/',
+			'params': ['subject', 'branch', 'course', 'year', 'page_size', 'page', 'format'],
+			'methods': ['GET', 'POST']
+			},
+		'Textbook Detail View':{
+			'path':'/textbook-detail/<str:pk>/',
+			'methods': ['GET', 'PUT', 'DELETE']
+			},
+        'List Teachers':{
+			'path': '/faculty-list/',
+			'params': ['branch', 'is_teaching_staff', 'college', 'page_size', 'page', 'format', 'search'],
+			'search_fields' : ['name', 'designation'],
+			'methods': ['GET']
+			},
+        'List Courses':'/course-list/',
+		'Course Detail View':'/course-detail/<str:pk>/',
+        'List Branches':'/branch-list/',
+		'Branche Detail View':'/branch-detail/<str:pk>/',
+        'List Subjects': '/subject-list/',
+        'Subject Detail View':'/subject-detail/<str:pk>/',
+		'List Users': '/user-list/',
+        'User Detail View':'/user-detail/<str:username>/',
+	}
+
+	return Response(api_urls)
+
+
+""" College """
+class CollegeList(ListAPIView):
+	"""
+	List all Subjects [GET]
+	"""
+
+	# return the list of subjects
+	queryset = College.objects.all()
+	serializer_class = CollegeSerializer
+	pagination_class = ResultsSetPagination
+
+	filter_backends = [DjangoFilterBackend, filters.SearchFilter,]
+	filterset_fields = ['college_code',]
+	search_fields = ['name', 'college_code', 'location']
+
+	
+class CollegeDetail(RetrieveAPIView):
+    """
+    Retrieve [GET], update [PUT] or delete [DELETE] a Subject instance.
+    """
+    queryset = College.objects.all()
+    serializer_class = CollegeSerializer
+    lookup_field = 'college_code'
+
+
 
 # # function based views
 

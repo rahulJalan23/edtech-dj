@@ -2,8 +2,9 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    # path('', views.apiOverview, name="api-overview"),
-    # path('college-list/', views.CollegeList.as_view(), name='college-list'),
+    path('', views.apiOverview, name="api-overview"),
+    path('college-list/', views.CollegeList.as_view(), name='college-list'),
+    path('college-detail/<str:college_code>/', views.CollegeDetail.as_view(), name='college-detail'),
     # path('subject-list/', views.SubjectList.as_view(), name="subject-list"),
     # path('subject-detail/<str:pk>/', views.SubjectDetail.as_view(), name="subject-detail"),
     # path('branch-list/', views.BranchList.as_view(), name="branch-list"),

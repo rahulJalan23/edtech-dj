@@ -1,9 +1,26 @@
-# from django.core.exceptions import FieldError
-# from django.db import models
-# from django.db.models import fields
-# from rest_framework import serializers
-# from django.contrib.auth.models import User
-# from .models import *
+from django.core.exceptions import FieldError
+from django.db import models
+from django.db.models import fields
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from .models import *
+
+from drf_queryfields import QueryFieldsMixin
+
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = '__all__'
+
+
+class CollegeSerializer(QueryFieldsMixin, serializers.ModelSerializer):
+    courses = CourseSerializer(Course, many=True, read_only=True)
+    class Meta:
+        model = College
+        fields = '__all__'
+
 
 
 # class PortionSerializer(serializers.ModelSerializer):
@@ -27,10 +44,7 @@
 
 
 
-# class CourseSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Course
-#         fields = '__all__'
+
 
 
 # class UserSerializer(serializers.ModelSerializer):
@@ -77,10 +91,6 @@
 #         model = Material 
 #         fields = '__all__'
 
-# class CollegeSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = College
-#         fields = '__all__'
 
 
 # class FacultySerializer(serializers.ModelSerializer):

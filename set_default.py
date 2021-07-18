@@ -4,6 +4,18 @@ import random
 import json
 import datetime
 
+
+def populate_colleges(CollegeClass, jsonFilePath):
+    json_data = open(jsonFilePath, 'r')
+    dict_data = json.load(json_data)
+
+    for college in dict_data:        
+        col = CollegeClass(**college)
+        col.save()
+
+
+
+
 def populate_users(UserClass, jsonFilePath):
     json_data = open(jsonFilePath, 'r')
     dict_data = json.load(json_data)
@@ -106,26 +118,28 @@ def populate_faculty(FacultyClass, BranchClass, CollegeClass, jsonFilePath):
         )
         prof.save()
 
-def populate_colleges(CollegeClass, jsonFilePath):
-    json_data = open(jsonFilePath, 'r')
-    dict_data = json.load(json_data)
+
+# def populate_colleges(CollegeClass, jsonFilePath):
+#     json_data = open(jsonFilePath, 'r')
+#     dict_data = json.load(json_data)
 
 
-    for college in dict_data:
-        description = f"""Institute Name : {college['full_name']}
-Address : {college['full_address']}
-Institute Type : {college['institute_type']}
-Established : {college['established']}"""
+#     for college in dict_data:
+#         description = f"""Institute Name : {college['full_name']}
+# Address : {college['full_address']}
+# Institute Type : {college['institute_type']}
+# Established : {college['established']}"""
         
-        col = CollegeClass(
-            college_code = college['college_code'],
-            name = college['short_name'],
-            description = description,
-            location = college['location'],
-            college_image = college['college_image'],
-            link_image = college['college_logo_img']
-        )
-        col.save()
+#         col = CollegeClass(
+#             college_code = college['college_code'],
+#             name = college['short_name'],
+#             description = description,
+#             location = college['location'],
+#             college_image = college['college_image'],
+#             link_image = college['college_logo_img']
+#         )
+#         col.save()
+
 
 def populate_portion_list_for_nitgoa(Portion, Subject, College):
     for sub in Subject.objects.all():
