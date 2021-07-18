@@ -1,0 +1,15 @@
+id,subject_code,name,college,branch,year,description
+1,ES300,Environmental Studies,NITG,ECE,THIRD,NULL
+2,EC301,Data Structures and Algorithm,NITG,ECE,THIRD,NULL
+3,EC302,Control System,NITG,ECE,THIRD,NULL
+4,EC303,Digital Signal Processing,NITG,ECE,THIRD,NULL
+5,EC304,Microprocessor and Microcontroller,NITG,ECE,THIRD,NULL
+6,EC305,Digital Signal Processing Laboratory,NITG,ECE,THIRD,NULL
+7,EC306,Microprocessor and Microcontroller Laboratory,NITG,ECE,THIRD,NULL
+8,EC351,Wireless Communication,NITG,ECE,THIRD,NULL
+9,EC352,Linear Integrated Circuits,NITG,ECE,THIRD,NULL
+10,EC353,Digital Communication,NITG,ECE,THIRD,NULL
+11,EC354,Communication Network,NITG,ECE,THIRD,NULL
+12,EC355,Linear Integrated Circuits Laboratory,NITG,ECE,THIRD,NULL
+13,EC356,Digital Communication Laboratory,NITG,ECE,THIRD,NULL
+14,EC399,Mini Project/Industrial Training,NITG,ECE,THIRD,NULL

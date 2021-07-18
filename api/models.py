@@ -48,13 +48,6 @@ MODELS:
         fields : subject(FK), start_time, end_time, teacher, days(MTMF)
 
 
-
-
-    
-
-
-
-
 """
 
 class College(models.Model):
@@ -127,9 +120,10 @@ class Subject(models.Model):
     branch = models.ForeignKey(Branch, on_delete=DO_NOTHING, related_name='subjects')
     name = models.CharField(max_length=150)
     year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
-    description = models.TextField()
+    description = models.TextField(default="")
 
     class Meta:
+        # unique_together = ('subject_code', 'college',)
         unique_together = ('subject_code', 'college', 'branch',)
 
     def __str__(self):

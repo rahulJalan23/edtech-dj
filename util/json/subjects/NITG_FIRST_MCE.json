@@ -1,0 +1,146 @@
+[
+    {
+        "id": "1",
+        "subject_code": "MA100",
+        "name": "Mathematics-I",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "PH100",
+        "name": "Physics",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "ME100",
+        "name": "Engineering Mechanics",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "CS100",
+        "name": "Computer Programming and Problem solving",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "HU100",
+        "name": "Professional Communication",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "ME101",
+        "name": "Engineering Drawing",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "PH101",
+        "name": "Physics Laboratory",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "8",
+        "subject_code": "MA150",
+        "name": "Mathematics-II",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "9",
+        "subject_code": "PH150",
+        "name": "Material Science",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "10",
+        "subject_code": "CY150",
+        "name": "Chemistry",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "11",
+        "subject_code": "ME150",
+        "name": "Elements of Mechanical Engineering",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "12",
+        "subject_code": "EE151",
+        "name": "Basic electrical science",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "13",
+        "subject_code": "ME151",
+        "name": "Workshop Practices",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "14",
+        "subject_code": "CY151",
+        "name": "Chemistry- Laboratory",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "15",
+        "subject_code": "EE152",
+        "name": "Basic Electrical Science Lab",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    },
+    {
+        "id": "16",
+        "subject_code": "PE150",
+        "name": "Physical Education",
+        "college": "NITG",
+        "branch": "MCE",
+        "year": "FIRST",
+        "description": "NULL"
+    }
+]

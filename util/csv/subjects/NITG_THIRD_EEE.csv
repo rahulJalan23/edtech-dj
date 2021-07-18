@@ -1,0 +1,15 @@
+id,subject_code,name,college,branch,year,description
+1,EE300,Electrical Power Transmission and Distribution ,NITG,EEE,THIRD,NULL
+2,EE301,Electrical Machines-II ,NITG,EEE,THIRD,NULL
+3,EE302,Control Systems,NITG,EEE,THIRD,NULL
+4,EE303,Microprocessors and Microcontrollers ,NITG,EEE,THIRD,NULL
+5,EE304,Electrical Machines-II Lab,NITG,EEE,THIRD,NULL
+6,EE305,Microprocessors and Microcontrollers Lab ,NITG,EEE,THIRD,NULL
+7,ES300,Environmental Studies ,NITG,EEE,THIRD,NULL
+8,EE350,Switchgear and Protection ,NITG,EEE,THIRD,NULL
+9,EE351,Power System Analysis,NITG,EEE,THIRD,NULL
+10,EE352,Power Electronics ,NITG,EEE,THIRD,NULL
+11,EE353,Integrated circuits ,NITG,EEE,THIRD,NULL
+12,EE354,Electrical Simulation Lab ,NITG,EEE,THIRD,NULL
+13,EE355,Control Systems Lab,NITG,EEE,THIRD,NULL
+14,EE356,Mini Project/Training,NITG,EEE,THIRD,NULL

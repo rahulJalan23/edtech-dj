@@ -1,0 +1,15 @@
+id,subject_code,name,college,branch,year,description
+1,CS200,Principles of Data Communications,NITG,CSE,SECOND,NULL
+2,CS201,Data Structures,NITG,CSE,SECOND,NULL
+3,CS202,Computer Organization and Architecture,NITG,CSE,SECOND,NULL
+4,CS203,Discrete Mathematics,NITG,CSE,SECOND,NULL
+5,MA200,Mathematics-III ,NITG,CSE,SECOND,NULL
+6,CS204,Data Structures Laboratory ,NITG,CSE,SECOND,NULL
+7,CS250,Digital Systems Design,NITG,CSE,SECOND,NULL
+8,HS250,Economics,NITG,CSE,SECOND,NULL
+9,CS251,Systems Programming,NITG,CSE,SECOND,NULL
+10,CS252,Object Oriented Programming ,NITG,CSE,SECOND,NULL
+11,MA250,Mathematics-IV,NITG,CSE,SECOND,NULL
+12,CS253,Object Oriented Programming Laboratory,NITG,CSE,SECOND,NULL
+13,CS254,Digital Systems Laboratory,NITG,CSE,SECOND,NULL
+14,VE200,Value Education ,NITG,CSE,SECOND,NULL

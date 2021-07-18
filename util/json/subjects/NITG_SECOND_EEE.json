@@ -1,0 +1,137 @@
+[
+    {
+        "id": "1",
+        "subject_code": "MA200",
+        "name": "Mathematics-III",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "EE200",
+        "name": "Electromagnetic Theory",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "EE201",
+        "name": "Analog Electronics",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "EE202",
+        "name": "Circuit Theory",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "EE203",
+        "name": "Electrical Measurements & Instrumentation",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "EE204",
+        "name": "Circuit Theory Lab",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "EE205",
+        "name": "Electrical Measurements and Instrumentation Lab",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "8",
+        "subject_code": "MA250",
+        "name": "Numerical Methods (Maths 4)",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "9",
+        "subject_code": "EE250",
+        "name": "Digital Electronics",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "10",
+        "subject_code": "EE251",
+        "name": "Electrical Power Generation ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "11",
+        "subject_code": "EE252",
+        "name": "Electrical Machines-I",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "12",
+        "subject_code": "HS250",
+        "name": "Economics",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "13",
+        "subject_code": "EE253",
+        "name": "Electrical Machines-I Lab",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "14",
+        "subject_code": "EE254",
+        "name": "Analog and Digital Electronics Lab ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "15",
+        "subject_code": "VE200",
+        "name": "Value Education",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "SECOND",
+        "description": "NULL"
+    }
+]

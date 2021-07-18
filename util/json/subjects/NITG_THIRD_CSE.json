@@ -1,0 +1,137 @@
+[
+    {
+        "id": "1",
+        "subject_code": "CS300",
+        "name": "Operating Systems ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "CS301",
+        "name": "Database Systems ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "CS302",
+        "name": "Microprocessor and Microcontrollers",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "CS303",
+        "name": "Theory of Computation ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "ES300",
+        "name": "Environmental Studies",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "CS304",
+        "name": "Operating Systems Laboratory ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "CS305",
+        "name": "Database Systems Laboratory",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "8",
+        "subject_code": "CS306",
+        "name": "Microprocessor and Microcontrollers Laboratory",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "9",
+        "subject_code": "CS350",
+        "name": "Compiler Design ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "10",
+        "subject_code": "CS351",
+        "name": "Design and Analysis of Algorithms ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "11",
+        "subject_code": "CS352",
+        "name": "Software Engineering",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "12",
+        "subject_code": "CS353",
+        "name": "Computer Networks ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "13",
+        "subject_code": "CS354",
+        "name": "Compiler Design Laboratory",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "14",
+        "subject_code": "CS355",
+        "name": "Networks Laboratory",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "15",
+        "subject_code": "CS356",
+        "name": "Mini Project/Industrial training",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "THIRD",
+        "description": "NULL"
+    }
+]

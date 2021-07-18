@@ -1,0 +1,128 @@
+[
+    {
+        "id": "1",
+        "subject_code": "CS200",
+        "name": "Principles of Data Communications",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "CS201",
+        "name": "Data Structures",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "CS202",
+        "name": "Computer Organization and Architecture",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "CS203",
+        "name": "Discrete Mathematics",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "MA200",
+        "name": "Mathematics-III ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "CS204",
+        "name": "Data Structures Laboratory ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "CS250",
+        "name": "Digital Systems Design",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "8",
+        "subject_code": "HS250",
+        "name": "Economics",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "9",
+        "subject_code": "CS251",
+        "name": "Systems Programming",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "10",
+        "subject_code": "CS252",
+        "name": "Object Oriented Programming ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "11",
+        "subject_code": "MA250",
+        "name": "Mathematics-IV",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "12",
+        "subject_code": "CS253",
+        "name": "Object Oriented Programming Laboratory",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "13",
+        "subject_code": "CS254",
+        "name": "Digital Systems Laboratory",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    },
+    {
+        "id": "14",
+        "subject_code": "VE200",
+        "name": "Value Education ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "SECOND",
+        "description": "NULL"
+    }
+]

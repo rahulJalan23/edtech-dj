@@ -1,0 +1,17 @@
+id,subject_code,name,college,branch,year,description
+1,MA100,Mathematics-I,NITG,CSE,FIRST,NULL
+2,PH100,Physics,NITG,CSE,FIRST,NULL
+3,ME100,Engineering Mechanics,NITG,CSE,FIRST,NULL
+4,CS100,Computer Programming and Problem solving,NITG,CSE,FIRST,NULL
+5,HU100,Professional Communication,NITG,CSE,FIRST,NULL
+6,ME101,Engineering Drawing,NITG,CSE,FIRST,NULL
+7,PH101,Physics Laboratory,NITG,CSE,FIRST,NULL
+8,MA150,Mathematics-II,NITG,CSE,FIRST,NULL
+9,PH150,Material Science,NITG,CSE,FIRST,NULL
+10,CY150,Chemistry,NITG,CSE,FIRST,NULL
+11,ME150,Elements of Mechanical Engineering,NITG,CSE,FIRST,NULL
+12,EE151,Basic electrical science,NITG,CSE,FIRST,NULL
+13,ME151,Workshop Practices,NITG,CSE,FIRST,NULL
+14,CY151,Chemistry- Laboratory,NITG,CSE,FIRST,NULL
+15,EE152,Basic Electrical Science Lab,NITG,CSE,FIRST,NULL
+16,PE150,Physical Education,NITG,CSE,FIRST,NULL

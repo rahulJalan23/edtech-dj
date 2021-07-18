@@ -1,0 +1,16 @@
+id,subject_code,name,college,branch,year,description
+1,MA200,Mathematics-III,NITG,EEE,SECOND,NULL
+2,EE200,Electromagnetic Theory,NITG,EEE,SECOND,NULL
+3,EE201,Analog Electronics,NITG,EEE,SECOND,NULL
+4,EE202,Circuit Theory,NITG,EEE,SECOND,NULL
+5,EE203,Electrical Measurements & Instrumentation,NITG,EEE,SECOND,NULL
+6,EE204,Circuit Theory Lab,NITG,EEE,SECOND,NULL
+7,EE205,Electrical Measurements and Instrumentation Lab,NITG,EEE,SECOND,NULL
+8,MA250,Numerical Methods (Maths 4),NITG,EEE,SECOND,NULL
+9,EE250,Digital Electronics,NITG,EEE,SECOND,NULL
+10,EE251,Electrical Power Generation ,NITG,EEE,SECOND,NULL
+11,EE252,Electrical Machines-I,NITG,EEE,SECOND,NULL
+12,HS250,Economics,NITG,EEE,SECOND,NULL
+13,EE253,Electrical Machines-I Lab,NITG,EEE,SECOND,NULL
+14,EE254,Analog and Digital Electronics Lab ,NITG,EEE,SECOND,NULL
+15,VE200,Value Education,NITG,EEE,SECOND,NULL

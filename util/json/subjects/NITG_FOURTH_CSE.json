@@ -1,0 +1,65 @@
+[
+    {
+        "id": "1",
+        "subject_code": "CS400",
+        "name": "Foundations of cryptography",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "CS401",
+        "name": "Introduction to Machine Learning ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "HS400",
+        "name": "Management",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "CS402",
+        "name": "Seminar",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "CS403",
+        "name": "Security Laboratory ",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "CS449",
+        "name": "Major Project-I",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "CS499",
+        "name": "Major Project \u00e2\u20ac\u201c II",
+        "college": "NITG",
+        "branch": "CSE",
+        "year": "FOURTH",
+        "description": "NULL"
+    }
+]

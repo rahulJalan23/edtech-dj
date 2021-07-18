@@ -6,12 +6,63 @@ import datetime
 
 
 def populate_colleges(CollegeClass, jsonFilePath):
+    """./util/json/colleges.json"""
     json_data = open(jsonFilePath, 'r')
     dict_data = json.load(json_data)
 
     for college in dict_data:        
         col = CollegeClass(**college)
         col.save()
+
+
+def populate_branch(BranchClass, CollegeClass, jsonFilePath):
+    """./util/json/NIG_branches.json"""
+    json_data = open(jsonFilePath, 'r')
+    dict_data = json.load(json_data)
+
+    for item in dict_data:
+        del item["id"]
+        college_code = item["college"]
+        del item["college"]
+        user = BranchClass(**item,
+            college = CollegeClass.objects.get(college_code=college_code)
+            )
+        user.save()
+
+
+def populate_courses(CourseClass, CollegeClass, jsonFilePath):
+    """./util/json/NITG_courses.json"""
+    json_data = open(jsonFilePath, 'r')
+    dict_data = json.load(json_data)
+
+    for item in dict_data:
+        del item["id"]
+        college_code = item["college"]
+        del item["college"]
+        course = CourseClass(**item,
+            college = CollegeClass.objects.get(college_code=college_code))
+        course.save()
+
+
+def populate_subjects(SubjectClass, CollegeClass, BranchClass, jsonFilePath):
+    """./util/subjects_data.json"""
+    json_data = open(jsonFilePath, 'r')
+    dict_data = json.load(json_data)
+
+    for item in dict_data:
+        college = item['college']
+        college = CollegeClass.objects.get(college_code=college)
+        branch = item['branch']
+        del item['id']
+        del item['college']
+        del item['branch']
+        del item['description']
+        user = SubjectClass(**item,
+        college=college,
+        branch=BranchClass.objects.get(college=college, branch_code=branch)
+        )
+        user.save()
+
 
 
 
@@ -24,38 +75,12 @@ def populate_users(UserClass, jsonFilePath):
         user = UserClass(**item)
         user.save()
 
-def populate_subjects(SubjectClass, jsonFilePath):
-    """./util/subjects_data.json"""
-    json_data = open(jsonFilePath, 'r')
-    dict_data = json.load(json_data)
 
-    for item in dict_data:
-        try:
-            str(item['subject_code'])
-        except KeyError:
-            item['subject_code'] = item['code']
-            del item['code']
 
-        user = SubjectClass(**item)
-        user.save()
 
-def populate_courses(CourseClass, jsonFilePath):
-    """./util/courses_data.json"""
-    json_data = open(jsonFilePath, 'r')
-    dict_data = json.load(json_data)
 
-    for item in dict_data:
-        user = CourseClass(**item)
-        user.save()
 
-def populate_branch(BranchClass, jsonFilePath):
-    """./util/branches_data.json"""
-    json_data = open(jsonFilePath, 'r')
-    dict_data = json.load(json_data)
 
-    for item in dict_data:
-        user = BranchClass(**item)
-        user.save()
 
 def list_objects(modelClass):
     for item in modelClass.objects.all():

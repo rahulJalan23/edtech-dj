@@ -1,0 +1,16 @@
+id,subject_code,name,college,branch,year,description
+1,EC201,Analog Electronics,NITG,ECE,SECOND,NULL
+2,EC202,Signals and Systems,NITG,ECE,SECOND,NULL
+3,EC203,Network Theory and Synthesis,NITG,ECE,SECOND,NULL
+4,EC204,Electromagnetic Theory,NITG,ECE,SECOND,NULL
+5,MA200,Mathematics –III,NITG,ECE,SECOND,NULL
+6,EC205,Analog Electronics Laboratory,NITG,ECE,SECOND,NULL
+7,EC206,Signals and Systems Laboratory,NITG,ECE,SECOND,NULL
+8,EC251,Digital Electronics,NITG,ECE,SECOND,NULL
+9,EC252,Communication Engineering,NITG,ECE,SECOND,NULL
+10,EC253,Devices,NITG,ECE,SECOND,NULL
+11,HU250,Economics,NITG,ECE,SECOND,NULL
+12,MA250,"Mathematics-IV (Probability, Statistics and Random Processes)",NITG,ECE,SECOND,NULL
+13,EC254,Digital Electronics Laboratory,NITG,ECE,SECOND,NULL
+14,EC255,Communication Engineering Laboratory,NITG,ECE,SECOND,NULL
+15,VE200,Value Education,NITG,ECE,SECOND,NULL

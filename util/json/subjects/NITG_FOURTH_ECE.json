@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "subject_code": "EC401",
+        "name": "VLSI Circuit Design",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "HS400",
+        "name": "Management",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "EC402",
+        "name": "Information Theory and Coding",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "EC403",
+        "name": "VLSI Design Laboratory",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "EC448",
+        "name": "Seminar",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "FOURTH",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "EC449",
+        "name": "Major Project",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "FOURTH",
+        "description": "NULL"
+    }
+]

@@ -1,0 +1,128 @@
+[
+    {
+        "id": "1",
+        "subject_code": "ES300",
+        "name": "Environmental Studies",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "EC301",
+        "name": "Data Structures and Algorithm",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "EC302",
+        "name": "Control System",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "EC303",
+        "name": "Digital Signal Processing",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "EC304",
+        "name": "Microprocessor and Microcontroller",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "EC305",
+        "name": "Digital Signal Processing Laboratory",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "EC306",
+        "name": "Microprocessor and Microcontroller Laboratory",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "8",
+        "subject_code": "EC351",
+        "name": "Wireless Communication",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "9",
+        "subject_code": "EC352",
+        "name": "Linear Integrated Circuits",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "10",
+        "subject_code": "EC353",
+        "name": "Digital Communication",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "11",
+        "subject_code": "EC354",
+        "name": "Communication Network",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "12",
+        "subject_code": "EC355",
+        "name": "Linear Integrated Circuits Laboratory",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "13",
+        "subject_code": "EC356",
+        "name": "Digital Communication Laboratory",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "14",
+        "subject_code": "EC399",
+        "name": "Mini Project/Industrial Training",
+        "college": "NITG",
+        "branch": "ECE",
+        "year": "THIRD",
+        "description": "NULL"
+    }
+]

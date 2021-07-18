@@ -1,0 +1,128 @@
+[
+    {
+        "id": "1",
+        "subject_code": "EE300",
+        "name": "Electrical Power Transmission and Distribution ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "2",
+        "subject_code": "EE301",
+        "name": "Electrical Machines-II ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "3",
+        "subject_code": "EE302",
+        "name": "Control Systems",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "4",
+        "subject_code": "EE303",
+        "name": "Microprocessors and Microcontrollers ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "5",
+        "subject_code": "EE304",
+        "name": "Electrical Machines-II Lab",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "6",
+        "subject_code": "EE305",
+        "name": "Microprocessors and Microcontrollers Lab ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "7",
+        "subject_code": "ES300",
+        "name": "Environmental Studies ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "8",
+        "subject_code": "EE350",
+        "name": "Switchgear and Protection ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "9",
+        "subject_code": "EE351",
+        "name": "Power System Analysis",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "10",
+        "subject_code": "EE352",
+        "name": "Power Electronics ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "11",
+        "subject_code": "EE353",
+        "name": "Integrated circuits ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "12",
+        "subject_code": "EE354",
+        "name": "Electrical Simulation Lab ",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "13",
+        "subject_code": "EE355",
+        "name": "Control Systems Lab",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    },
+    {
+        "id": "14",
+        "subject_code": "EE356",
+        "name": "Mini Project/Training",
+        "college": "NITG",
+        "branch": "EEE",
+        "year": "THIRD",
+        "description": "NULL"
+    }
+]

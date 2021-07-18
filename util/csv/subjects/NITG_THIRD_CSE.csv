@@ -1,0 +1,16 @@
+id,subject_code,name,college,branch,year,description
+1,CS300,Operating Systems ,NITG,CSE,THIRD,NULL
+2,CS301,Database Systems ,NITG,CSE,THIRD,NULL
+3,CS302,Microprocessor and Microcontrollers,NITG,CSE,THIRD,NULL
+4,CS303,Theory of Computation ,NITG,CSE,THIRD,NULL
+5,ES300,Environmental Studies,NITG,CSE,THIRD,NULL
+6,CS304,Operating Systems Laboratory ,NITG,CSE,THIRD,NULL
+7,CS305,Database Systems Laboratory,NITG,CSE,THIRD,NULL
+8,CS306,Microprocessor and Microcontrollers Laboratory,NITG,CSE,THIRD,NULL
+9,CS350,Compiler Design ,NITG,CSE,THIRD,NULL
+10,CS351,Design and Analysis of Algorithms ,NITG,CSE,THIRD,NULL
+11,CS352,Software Engineering,NITG,CSE,THIRD,NULL
+12,CS353,Computer Networks ,NITG,CSE,THIRD,NULL
+13,CS354,Compiler Design Laboratory,NITG,CSE,THIRD,NULL
+14,CS355,Networks Laboratory,NITG,CSE,THIRD,NULL
+15,CS356,Mini Project/Industrial training,NITG,CSE,THIRD,NULL

@@ -15,12 +15,25 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class BranchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Branch
+        fields = '__all__'
+
+
 class CollegeSerializer(QueryFieldsMixin, serializers.ModelSerializer):
     courses = CourseSerializer(Course, many=True, read_only=True)
+    branches = BranchSerializer(Branch, many=True, read_only=True)
     class Meta:
         model = College
         fields = '__all__'
 
+class SubjectSerializer(serializers.ModelSerializer):
+    # portions = PortionSerializer(Portion, many=True, read_only=True)
+    # portions = serializers.HyperlinkedRelatedField(many=True, view_name="portion-detail", read_only=True)
+    class Meta:
+        model = Subject
+        fields = '__all__'
 
 
 # class PortionSerializer(serializers.ModelSerializer):
@@ -29,18 +42,10 @@ class CollegeSerializer(QueryFieldsMixin, serializers.ModelSerializer):
 #         model = Portion
 #         fields = '__all__'
 
-# class SubjectSerializer(serializers.ModelSerializer):
-#     portions = PortionSerializer(Portion, many=True, read_only=True)
-#     # portions = serializers.HyperlinkedRelatedField(many=True, view_name="portion-detail", read_only=True)
-#     class Meta:
-#         model = Subject
-#         fields = '__all__'
 
 
-# class BranchSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Branch
-#         fields = '__all__'
+
+
 
 
 
