@@ -75,7 +75,7 @@ admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Textbook)
 admin.site.register(Faculty)
 admin.site.register(Material)
-admin.site.register(Portion)
+# admin.site.register(Portion)
 admin.site.register(Gsheettable)
 
 

@@ -37,14 +37,14 @@ class ResultsSetPagination(PageNumberPagination):
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
-        'List Textbooks': {
-            'path': '/textbook-list/',
-            'params': ['subject', 'branch', 'course', 'year', 'page_size', 'page', 'format'],
-            'methods': ['GET', 'POST']
+        'List Colleges': {
+            'path': '/college-list/',
+            'params': ['college_code', 'search', 'fields', 'page_size', 'page', 'format'],
+            'methods': ['GET']
         },
-        'Textbook Detail View': {
-            'path': '/textbook-detail/<str:pk>/',
-            'methods': ['GET', 'PUT', 'DELETE']
+        'College Detail View': {
+            'path': '/textbook-detail/<str:college_code>/',
+            'methods': ['GET']
         },
         'List Teachers': {
             'path': '/faculty-list/',
@@ -93,8 +93,6 @@ class CollegeDetail(RetrieveAPIView):
 
 
 """ Course"""
-
-
 class CourseList(ListAPIView):
     """
     List Courses in a College [GET]

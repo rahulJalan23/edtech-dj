@@ -121,6 +121,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=150)
     year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
     description = models.TextField(default="")
+    portion_link = models.CharField(max_length=35, default="")
 
     class Meta:
         # unique_together = ('subject_code', 'college',)
@@ -195,14 +196,14 @@ class Material(models.Model):
         return self.title    
 
 
-class Portion(models.Model):
-    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="portions")
-    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="portions")
-    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="portions", blank=True, null=True)
-    link = models.URLField(max_length=200)
+# class Portion(models.Model):
+#     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="portions")
+#     college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="portions")
+#     branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="portions", blank=True, null=True)
+#     link = models.URLField(max_length=200)
 
-    def __str__(self):
-        return f"Syllabus for {self.subject.subject_code}, {self.branch.branch_code} of {self.college}"
+#     def __str__(self):
+#         return f"Syllabus for {self.subject.subject_code}, {self.branch.branch_code} of {self.college}"
 
 
 class Gsheettable(models.Model):

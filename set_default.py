@@ -53,6 +53,14 @@ def populate_subjects(SubjectClass, CollegeClass, BranchClass, jsonFilePath):
         college = item['college']
         college = CollegeClass.objects.get(college_code=college)
         branch = item['branch']
+        item['name'] = item['name'].strip()
+
+        if item['portion_link'] == "":
+            del item['portion_link']
+        else:
+            item['portion_link'] = item['portion_link'].split('/')[-2]
+
+
         del item['id']
         del item['college']
         del item['branch']
@@ -74,10 +82,6 @@ def populate_users(UserClass, jsonFilePath):
     for item in dict_data:
         user = UserClass(**item)
         user.save()
-
-
-
-
 
 
 
