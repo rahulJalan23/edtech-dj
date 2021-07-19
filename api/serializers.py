@@ -28,11 +28,18 @@ class CollegeSerializer(QueryFieldsMixin, serializers.ModelSerializer):
         model = College
         fields = '__all__'
 
-class SubjectSerializer(serializers.ModelSerializer):
+class SubjectSerializer(QueryFieldsMixin, serializers.ModelSerializer):
     # portions = PortionSerializer(Portion, many=True, read_only=True)
     # portions = serializers.HyperlinkedRelatedField(many=True, view_name="portion-detail", read_only=True)
+    branch_code = serializers.CharField(source='branch.branch_code')
     class Meta:
         model = Subject
+        fields = '__all__'
+
+class GtimetableSerializer(serializers.ModelSerializer):
+    branch_code = serializers.CharField(source='branch.branch_code')
+    class Meta:
+        model = Gtimetable
         fields = '__all__'
 
 
@@ -104,8 +111,5 @@ class SubjectSerializer(serializers.ModelSerializer):
 #         fields = '__all__'
 
 
-# class GsheettableSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Gsheettable
-#         fields = '__all__'
+
 

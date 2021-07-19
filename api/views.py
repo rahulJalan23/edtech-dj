@@ -178,20 +178,36 @@ class SubjectList(ListAPIView):
 
 class SubjectDetail(RetrieveAPIView):
     """
-    Retrieve a subject in a college [GET]
+    Retrieve a timetable of a branch in a college [GET]
     """
     queryset = Subject.objects.all()
     serializer_class = SubjectSerializer
-    lookup_fields = ('college_code', 'branch_code', 'subject_code',)
+    lookup_fields = ('college_code', 'branch_code', 'year',)
 
     def get_object(self):
         college_code = self.kwargs.get('college_code')
-        subject_code = self.kwargs.get('subject_code')
+        year = self.kwargs.get('year')
         branch_code = self.kwargs.get('branch_code')
         college = College.objects.get(college_code=college_code)
         branch = Branch.objects.get(branch_code=branch_code)
-        return Subject.objects.get(college=college.college_code, branch=branch.id, subject_code=subject_code)
+        return Subject.objects.get(college=college.college_code, branch=branch.id, year=year)
 
+""" Gtimetable """
+class GtimetableDetail(RetrieveAPIView):
+    """
+    Retrieve a Gtimetable of a year of a branch in a college [GET]
+    """
+    queryset = Gtimetable.objects.all()
+    serializer_class = GtimetableSerializer
+    lookup_fields = ('college_code', 'branch_code', 'year',)
+
+    def get_object(self):
+        college_code = self.kwargs.get('college_code')
+        year = self.kwargs.get('year')
+        branch_code = self.kwargs.get('branch_code')
+        college = College.objects.get(college_code=college_code)
+        branch = Branch.objects.get(branch_code=branch_code)
+        return Gtimetable.objects.get(college=college.college_code, branch=branch.id, year=year)
 
 # # function based views
 

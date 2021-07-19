@@ -128,7 +128,7 @@ class Subject(models.Model):
         unique_together = ('subject_code', 'college', 'branch',)
 
     def __str__(self):
-        return f"{self.subject_code}: {self.name}"
+        return f"({self.college}, {self.branch.branch_code}): {self.subject_code}: {self.name}"
 
 
 class Textbook(models.Model):
@@ -206,7 +206,7 @@ class Material(models.Model):
 #         return f"Syllabus for {self.subject.subject_code}, {self.branch.branch_code} of {self.college}"
 
 
-class Gsheettable(models.Model):
+class Gtimetable(models.Model):
     YEARS = [
         ('FIRST', 'FIRST'),
         ('SECOND', 'SECOND'),
@@ -214,15 +214,17 @@ class Gsheettable(models.Model):
         ('FOURTH', 'FOURTH'),
     ]
 
-    title = models.CharField(max_length=150)
-    gsheet_src = models.URLField(max_length=250)
+    # title = models.CharField(max_length=150)
+    gsheet_src = models.URLField(max_length=90)
     college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="gsheettables")
     branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="gsheettables", blank=True, null=True)
     year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
 
+    class Meta:
+        unique_together = ('college', 'branch', 'year')
 
     def __str__(self):
-        return self.title   
+        return f"{self.college.college_code}: Timetable for {self.branch.branch_code} {self.year} year."  
 
 # class Timetable(models.Model):
 #     YEARS = [

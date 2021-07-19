@@ -73,6 +73,33 @@ def populate_subjects(SubjectClass, CollegeClass, BranchClass, jsonFilePath):
 
 
 
+def populate_gtimetable(GtimetableClass, CollegeClass, BranchClass, jsonFilePath):
+    '''college, branch, year, gsheet_src'''
+    json_data = open(jsonFilePath, 'r')
+    dict_data = json.load(json_data)
+
+    for item in dict_data:
+        college = item['college']
+        college = CollegeClass.objects.get(college_code=college)
+        branch = item['branch']
+
+        if item['gsheet_src'] == "":
+            del item['gsheet_src']
+        else:
+            item['gsheet_src'] = item['gsheet_src'].split('/')[-2]
+
+
+        del item['id']
+        del item['college']
+        del item['branch']
+        sheet = GtimetableClass(**item,
+        college=college,
+        branch=BranchClass.objects.get(college=college, branch_code=branch)
+        )
+        sheet.save()
+
+
+
 
 
 def populate_users(UserClass, jsonFilePath):
@@ -116,6 +143,7 @@ def populate_textbooks(TextbookClass, branches, courses, subjects, users, jsonFi
             description = book['description'],
         )
         textbook.save()
+
 
 
 def populate_lectures(LectureClass, SubjectClass, jsonFilePath):

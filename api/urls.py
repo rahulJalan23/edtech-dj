@@ -11,6 +11,7 @@ urlpatterns = [
     path('branch-detail/<str:college_code>/<str:branch_code>/', views.BranchDetail.as_view(), name="branch-detail"),
     path('subject-list/<str:college_code>/', views.SubjectList.as_view(), name="subject-list"),
     path('subject-detail/<str:college_code>/<str:branch_code>/<str:subject_code>/', views.SubjectDetail.as_view(), name="subject-detail"),
+    path('gtimetable-detail/<str:college_code>/<str:branch_code>/<str:year>/', views.GtimetableDetail.as_view(), name="gtimetable-detail"),
     # path('branch-list/', views.BranchList.as_view(), name="branch-list"),
     # path('branch-detail/<str:pk>/', views.BranchDetail.as_view(), name="branch-detail"),
     # path('course-list/', views.CourseList.as_view(), name="course-list"),

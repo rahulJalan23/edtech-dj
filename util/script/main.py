@@ -4,6 +4,7 @@ import os
 
 UTIL_PATH = r'C:\X1_Enter\Web Development\community projects\edtech_dj\util'
 SUBJECTS_CSV_PATH = r'C:\X1_Enter\Web Development\community projects\edtech_dj\util\csv\subjects'
+GTIMETABLE_CSV_PATH = r'C:\X1_Enter\Web Development\community projects\edtech_dj\util\csv\gtimetable'
 
 os.chdir(UTIL_PATH)
 
@@ -26,6 +27,9 @@ def convert_to_json_data_subjects():
         print(file)
         convert_to_json_data(file, os.path.splitext(file)[0]+'.json', SUBJECTS_CSV_PATH)
 
+
+
 if __name__ == '__main__':
     # convert_to_json_data("NITG_branches", "NITG_branches")
-    convert_to_json_data_subjects()
+    # convert_to_json_data_subjects()
+    convert_to_json_data('NITG.csv', 'NITG.json', GTIMETABLE_CSV_PATH)
