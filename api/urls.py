@@ -13,6 +13,7 @@ urlpatterns = [
     path('subject-detail/<str:college_code>/<str:branch_code>/<str:subject_code>/', views.SubjectDetail.as_view(), name="subject-detail"),
     path('gtimetable-detail/<str:college_code>/<str:branch_code>/<str:year>/', views.GtimetableDetail.as_view(), name="gtimetable-detail"),
     path('contributor-list/', views.ContributorList.as_view(),  name='contributor-list'),
+    path('contributor-detail/<str:pk>/', views.ContributorDetail.as_view(),  name='contributor-detail'),
     # path('contributor-detail/<str:pk>/', name='contributor-list'),
     path('material-list/', views.MaterialList.as_view() ,name='material-list'),
     # path('textbook-list/', views.TextbookList.as_view(), name='textbook-list'),
@@ -29,7 +30,6 @@ urlpatterns = [
     # path('portion-list/', views.PortionList.as_view(), name='portion-list'),
     # path('portion-detail/<str:pk>/', views.PortionDetail.as_view(), name='portion-detail'),
     # path('material-list/', views.MaterialList.as_view(), name='material-list'),
-    
     # path('faculty-list/', views.FacultyList.as_view(), name='faculty-list'),
     # path('gsheettable-list/', views.GsheettableList.as_view(), name='gsheettable-list'),
 ]

@@ -137,6 +137,7 @@ class Contributor(models.Model):
     def __str__(self):
         return self.name
 
+
 class Textbook(models.Model):
     YEARS = [
         ('FIRST', 'FIRST'),
@@ -202,6 +203,11 @@ class Material(models.Model):
     def __str__(self):
         return self.title    
 
+
+class Recommendation(models.Model):
+    title = models.CharField(max_length=250)
+    recommended_by = models.CharField(max_length=60)
+    link = models.URLField(max_length=200)
 
 # class Portion(models.Model):
 #     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="portions")

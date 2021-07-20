@@ -24,6 +24,7 @@ class BranchSerializer(serializers.ModelSerializer):
 class CollegeSerializer(QueryFieldsMixin, serializers.ModelSerializer):
     courses = CourseSerializer(Course, many=True, read_only=True)
     branches = BranchSerializer(Branch, many=True, read_only=True)
+    # url = serializers.HyperlinkedIdentityField(view_name="college-detail")
     class Meta:
         model = College
         fields = '__all__'
@@ -45,11 +46,12 @@ class GtimetableSerializer(serializers.ModelSerializer):
 
 class MaterialSerializer(serializers.ModelSerializer):
     contributor_name = serializers.CharField(source='contributor.name')
+    contributor_link = serializers.CharField(source='contributor.social_link')
     class Meta:
         model = Material
         fields = '__all__'
 
-class ContributorSerializer(serializers.ModelSerializer):
+class ContributorSerializer(serializers.HyperlinkedModelSerializer):
     materials = MaterialSerializer(Material, many=True, read_only=True)
     class Meta:
         model = Contributor

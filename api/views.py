@@ -230,6 +230,12 @@ class ContributorList(ListAPIView):
     #     subjects = Subject.objects.filter(college=college_code)
     #     return subjects
 
+class ContributorDetail(RetrieveAPIView):
+    queryset = Contributor.objects.all()
+    serializer_class = ContributorSerializer
+    lookup_field  = 'pk'
+
+
 class MaterialList(ListAPIView):
     """
     List all contributor [GET]
