@@ -43,6 +43,30 @@ class GtimetableSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class MaterialSerializer(serializers.ModelSerializer):
+    contributor_name = serializers.CharField(source='contributor.name')
+    class Meta:
+        model = Material
+        fields = '__all__'
+
+class ContributorSerializer(serializers.ModelSerializer):
+    materials = MaterialSerializer(Material, many=True, read_only=True)
+    class Meta:
+        model = Contributor
+        fields = '__all__'
+
+
+# class TextbookSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Textbook 
+#         fields = '__all__'
+
+
+# class MaterialSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Material 
+#         fields = '__all__'
+
 # class PortionSerializer(serializers.ModelSerializer):
 
 #     class Meta:
@@ -65,10 +89,7 @@ class GtimetableSerializer(serializers.ModelSerializer):
 #         fields = ['id', 'username', 'first_name', 'last_name',]
 
 
-# class TextbookSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Textbook 
-#         fields = '__all__'
+
 
 
 # class TimetableSerializer(serializers.ModelSerializer):
@@ -96,12 +117,6 @@ class GtimetableSerializer(serializers.ModelSerializer):
 #         model = Timetable
 #         fields = '__all__'
 
-
-
-# class MaterialSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Material 
-#         fields = '__all__'
 
 
 

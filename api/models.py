@@ -23,20 +23,20 @@ MODELS:
     - SUBJECT:
         fields : id, subject_code, college, branch, name, year, description
 
-    - TEXTBOOK:
-        fields : id, title, author, link, cover_image, college, subject, branch, course, year, posted_by, date_posted, description.
+    - Gsheettable:
+        fields : id, title, gsheet_src, college, branch, year
 
-    - FACULTY:
-        fields : id, name, designation, email, phone_number, description, branch, college, is_teaching_staff
+    - TEXTBOOK:
+        fields : id, title, author, link, cover_image, college, subject, branch, course, year.
 
     - MATERIAL:
         fields : id, title, link, author, subject, branch, course, year, posted_by, date_posted, description
 
+    - FACULTY:
+        fields : id, name, designation, email, phone_number, description, branch, college, is_teaching_staff
+
     - PORTION:
         fields : id, subject, college, branch, link
-
-    - Gsheettable:
-        fields : id, title, gsheet_src, college, branch, year
 
     - TIMETABLE: X
         fields : title, branch, course, year, semester
@@ -46,7 +46,6 @@ MODELS:
 
     - LECTURE: X
         fields : subject(FK), start_time, end_time, teacher, days(MTMF)
-
 
 """
 
@@ -128,8 +127,15 @@ class Subject(models.Model):
         unique_together = ('subject_code', 'college', 'branch',)
 
     def __str__(self):
-        return f"({self.college}, {self.branch.branch_code}): {self.subject_code}: {self.name}"
+        return f"({self.college.college_code}, {self.branch.branch_code}): {self.subject_code}: {self.name}"
 
+
+class Contributor(models.Model):
+    name = models.CharField(max_length=100)
+    social_link = models.URLField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Textbook(models.Model):
     YEARS = [
@@ -140,17 +146,17 @@ class Textbook(models.Model):
     ]
 
     title = models.CharField(max_length=150)
-    author = models.CharField(max_length=60)
-    link = models.URLField(max_length=200)
+    author = models.CharField(max_length=100)
+    link = models.URLField(max_length=35)
     cover_image = models.URLField(max_length=200)
     college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="textbooks")
     branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
     course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
     year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
-    posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='textbooks')
-    date_posted = models.DateTimeField(default=timezone.now)
-    description = models.TextField()
+    # posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='textbooks')
+    # date_posted = models.DateTimeField(default=timezone.now)
+    # description = models.TextField()
 
     def __str__(self):
         return self.title
@@ -183,14 +189,15 @@ class Material(models.Model):
 
     title = models.CharField(max_length=150)
     link = models.URLField(max_length=200)
-    author = models.CharField(max_length=60)
-    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="materials")
+    contributor = models.ForeignKey(Contributor, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
     branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
     course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
-    year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
-    posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='materials')
-    date_posted = models.DateTimeField(default=timezone.now)
-    description = models.TextField()
+    year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
+    # posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='materials')
+    # date_posted = models.DateTimeField(default=timezone.now)
+    # description = models.TextField()
 
     def __str__(self):
         return self.title    
@@ -225,6 +232,8 @@ class Gtimetable(models.Model):
 
     def __str__(self):
         return f"{self.college.college_code}: Timetable for {self.branch.branch_code} {self.year} year."  
+
+
 
 # class Timetable(models.Model):
 #     YEARS = [

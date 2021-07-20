@@ -209,6 +209,39 @@ class GtimetableDetail(RetrieveAPIView):
         branch = Branch.objects.get(branch_code=branch_code)
         return Gtimetable.objects.get(college=college.college_code, branch=branch.id, year=year)
 
+class ContributorList(ListAPIView):
+    """
+    List all contributor [GET]
+    """
+    # return the list of subjects in a college
+    queryset = Contributor.objects.all()
+    serializer_class = ContributorSerializer
+    pagination_class = ResultsSetPagination
+    # lookup_url_kwarg = 'college_code'
+
+    # filter_backends = [DjangoFilterBackend, filters.SearchFilter,]
+    # filterset_fields = ['subject_code', 'year', 'branch__branch_code']
+    # search_fields = ['name', 'subject_code', 'branch__branch_code']
+    # filter_class = SubjectFilter  # branch
+    # filterset_fields = ['subject_code', 'branch__branch_code', 'course__course_code', 'year',]
+
+    # def get_queryset(self):
+    #     college_code = self.kwargs.get(self.lookup_url_kwarg)
+    #     subjects = Subject.objects.filter(college=college_code)
+    #     return subjects
+
+class MaterialList(ListAPIView):
+    """
+    List all contributor [GET]
+    """
+    # return the list of subjects in a college
+    queryset = Material.objects.all()
+    serializer_class = MaterialSerializer
+    pagination_class = ResultsSetPagination
+
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter,]
+    filterset_fields = ['year', 'college', 'branch__branch_code', 'subject__subject_code', 'course__course_code']
+    search_fields = ['title', 'contributor_name', 'subject_name', 'subject__subject_code']
 # # function based views
 
 # @api_view(['GET'])
