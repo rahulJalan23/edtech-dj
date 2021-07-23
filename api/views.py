@@ -93,6 +93,8 @@ class CollegeDetail(RetrieveAPIView):
 
 
 """ Course"""
+
+
 class CourseList(ListAPIView):
     """
     List Courses in a College [GET]
@@ -125,19 +127,21 @@ class CourseDetail(RetrieveAPIView):
 
 
 """ Branch """
-class BranchList(ListAPIView):
-	"""
-	List all Branches in a college [GET]
-	"""
-	# return the list of subjects in a college
-	serializer_class = BranchSerializer
-	pagination_class = ResultsSetPagination
-	lookup_url_kwarg = 'college_code'
 
-	def get_queryset(self):
-		college_code = self.kwargs.get(self.lookup_url_kwarg)
-		courses = Branch.objects.filter(college=college_code)
-		return courses
+
+class BranchList(ListAPIView):
+    """
+    List all Branches in a college [GET]
+    """
+    # return the list of subjects in a college
+    serializer_class = BranchSerializer
+    pagination_class = ResultsSetPagination
+    lookup_url_kwarg = 'college_code'
+
+    def get_queryset(self):
+        college_code = self.kwargs.get(self.lookup_url_kwarg)
+        courses = Branch.objects.filter(college=college_code)
+        return courses
 
 
 class BranchDetail(RetrieveAPIView):
@@ -156,6 +160,8 @@ class BranchDetail(RetrieveAPIView):
 
 
 """ Subject """
+
+
 class SubjectList(ListAPIView):
     """
     List all subjects in a college [GET]
@@ -165,7 +171,7 @@ class SubjectList(ListAPIView):
     pagination_class = ResultsSetPagination
     lookup_url_kwarg = 'college_code'
 
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter,]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, ]
     filterset_fields = ['subject_code', 'year', 'branch__branch_code']
     search_fields = ['name', 'subject_code', 'branch__branch_code']
     # filter_class = SubjectFilter  # branch
@@ -175,6 +181,7 @@ class SubjectList(ListAPIView):
         college_code = self.kwargs.get(self.lookup_url_kwarg)
         subjects = Subject.objects.filter(college=college_code)
         return subjects
+
 
 class SubjectDetail(RetrieveAPIView):
     """
@@ -192,7 +199,10 @@ class SubjectDetail(RetrieveAPIView):
         branch = Branch.objects.get(branch_code=branch_code)
         return Subject.objects.get(college=college.college_code, branch=branch.id, year=year)
 
+
 """ Gtimetable """
+
+
 class GtimetableDetail(RetrieveAPIView):
     """
     Retrieve a Gtimetable of a year of a branch in a college [GET]
@@ -208,6 +218,7 @@ class GtimetableDetail(RetrieveAPIView):
         college = College.objects.get(college_code=college_code)
         branch = Branch.objects.get(branch_code=branch_code)
         return Gtimetable.objects.get(college=college.college_code, branch=branch.id, year=year)
+
 
 class ContributorList(ListAPIView):
     """
@@ -230,10 +241,11 @@ class ContributorList(ListAPIView):
     #     subjects = Subject.objects.filter(college=college_code)
     #     return subjects
 
+
 class ContributorDetail(RetrieveAPIView):
     queryset = Contributor.objects.all()
     serializer_class = ContributorSerializer
-    lookup_field  = 'pk'
+    lookup_field = 'pk'
 
 
 class MaterialList(ListAPIView):
@@ -245,9 +257,60 @@ class MaterialList(ListAPIView):
     serializer_class = MaterialSerializer
     pagination_class = ResultsSetPagination
 
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter,]
-    filterset_fields = ['year', 'college', 'branch__branch_code', 'subject__subject_code', 'course__course_code']
-    search_fields = ['title', 'contributor_name', 'subject_name', 'subject__subject_code']
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, ]
+    filterset_fields = ['year', 'college', 'branch__branch_code',
+                        'subject__subject_code', 'course__course_code']
+    search_fields = ['title', 'contributor_name',
+                     'subject_name', 'subject__subject_code']
+
+
+class FacultyList(ListAPIView):
+    """
+    List all faculty in a college [GET]
+    """
+    # return the list of faculty in a college
+    serializer_class = FacultySerializer
+    pagination_class = ResultsSetPagination
+    lookup_url_kwarg = 'college_code'
+
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, ]
+    filterset_fields = ['branch__branch_code', 'is_teaching_staff']
+    search_fields = ['name', 'branch__name',
+                     'branch__branch_code', 'designation']
+    # filter_class = SubjectFilter  # branch
+    # filterset_fields = ['subject_code', 'branch__branch_code', 'course__course_code', 'year',]
+
+    def get_queryset(self):
+        college_code = self.kwargs.get(self.lookup_url_kwarg)
+        faculty = Faculty.objects.filter(college=college_code)
+        return faculty
+
+
+class FacultyDetail(RetrieveAPIView):
+    """
+    Retrieve a Faculty of a year of a branch in a college [GET]
+    """
+    queryset = Faculty.objects.all()
+    serializer_class = FacultySerializer
+    lookup_field = 'pk'
+
+
+class RecommendationList(ListAPIView):
+    """
+    List all faculty in a college [GET]
+    """
+    # return the list of faculty in a college
+    queryset = Recommendation.objects.all()
+    serializer_class = RecommendationSerializer
+    pagination_class = ResultsSetPagination
+    # lookup_url_kwarg = 'college_code'
+
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, ]
+    filterset_fields = ['recommended_by_faculty__name',
+                        'recommended_by_contributor__name']
+    search_fields = ['title', ]
+
+
 # # function based views
 
 # @api_view(['GET'])
@@ -320,7 +383,7 @@ class MaterialList(ListAPIView):
 # 		return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-# 
+#
 
 # """ Course """
 # class CourseList(ListAPIView):

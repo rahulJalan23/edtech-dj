@@ -49,13 +49,16 @@ MODELS:
 
 """
 
+
 class College(models.Model):
     """ Model for all the Colleges """
 
-    college_code = models.CharField(max_length=12, unique=True, primary_key=True)    
+    college_code = models.CharField(
+        max_length=12, unique=True, primary_key=True)
     name = models.CharField(max_length=180)
-    established = models.PositiveIntegerField(default=datetime.date.today().year, validators=[MinValueValidator(1900), MaxValueValidator(2050)])    
-    location = models.CharField(max_length=30)    
+    established = models.PositiveIntegerField(default=datetime.date.today(
+    ).year, validators=[MinValueValidator(1900), MaxValueValidator(2050)])
+    location = models.CharField(max_length=30)
     full_address = models.CharField(max_length=200, default="", blank=True)
     link_image = models.URLField(max_length=200, blank=True)
     website_link = models.URLField(max_length=200, blank=True)
@@ -76,10 +79,10 @@ class Course(models.Model):
     """Model for all the Colleges """
 
     course_code = models.CharField(max_length=10)
-    college = models.ForeignKey(College, on_delete=DO_NOTHING, related_name='courses')
+    college = models.ForeignKey(
+        College, on_delete=DO_NOTHING, related_name='courses')
     name = models.CharField(max_length=150)
     description = models.TextField()
-    
 
     class Meta:
         unique_together = ('course_code', 'college',)
@@ -91,10 +94,10 @@ class Course(models.Model):
 class Branch(models.Model):
     """ Model for all the Branches """
     branch_code = models.CharField(max_length=8)
-    college = models.ForeignKey(College, on_delete=DO_NOTHING, related_name='branches')
+    college = models.ForeignKey(
+        College, on_delete=DO_NOTHING, related_name='branches')
     name = models.CharField(max_length=150)
     description = models.TextField()
-    
 
     class Meta:
         unique_together = ('branch_code', 'college',)
@@ -113,10 +116,12 @@ class Subject(models.Model):
         ('THIRD', 'THIRD'),
         ('FOURTH', 'FOURTH'),
     ]
-    
+
     subject_code = models.CharField(max_length=8)
-    college = models.ForeignKey(College, on_delete=DO_NOTHING, related_name='subjects')
-    branch = models.ForeignKey(Branch, on_delete=DO_NOTHING, related_name='subjects')
+    college = models.ForeignKey(
+        College, on_delete=DO_NOTHING, related_name='subjects')
+    branch = models.ForeignKey(
+        Branch, on_delete=DO_NOTHING, related_name='subjects')
     name = models.CharField(max_length=150)
     year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
     description = models.TextField(default="")
@@ -150,11 +155,15 @@ class Textbook(models.Model):
     author = models.CharField(max_length=100)
     link = models.URLField(max_length=35)
     cover_image = models.URLField(max_length=200)
-    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
-    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="textbooks")
-    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
-    course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
-    year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
+    college = models.ForeignKey(
+        College, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
+    subject = models.ForeignKey(
+        Subject, on_delete=models.DO_NOTHING, related_name="textbooks")
+    branch = models.ForeignKey(
+        Branch, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
+    course = models.ForeignKey(
+        Course, on_delete=models.DO_NOTHING, related_name="textbooks", blank=True, null=True)
+    year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
     # posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='textbooks')
     # date_posted = models.DateTimeField(default=timezone.now)
     # description = models.TextField()
@@ -169,11 +178,15 @@ class Faculty(models.Model):
     name = models.CharField(max_length=50)
     designation = models.CharField(max_length=80)
     email = models.EmailField(max_length=254)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
-    description = models.TextField()
-    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, blank=False, related_name='faculty')
-    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, blank=False, related_name='faculty')
+    # phone_regex = RegexValidator(
+    #     regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    # validators should be a list
+    phone_number = models.CharField(max_length=17, blank=True)
+    # description = models.TextField()
+    branch = models.ForeignKey(
+        Branch, on_delete=models.DO_NOTHING, blank=False, related_name='faculty')
+    college = models.ForeignKey(
+        College, on_delete=models.DO_NOTHING, blank=False, related_name='faculty')
     is_teaching_staff = models.BooleanField(default=True)
 
     def __str__(self):
@@ -190,24 +203,36 @@ class Material(models.Model):
 
     title = models.CharField(max_length=150)
     link = models.URLField(max_length=200)
-    contributor = models.ForeignKey(Contributor, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
-    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
-    subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
-    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
-    course = models.ForeignKey(Course, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    contributor = models.ForeignKey(
+        Contributor, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    college = models.ForeignKey(
+        College, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    subject = models.ForeignKey(
+        Subject, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    branch = models.ForeignKey(
+        Branch, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
+    course = models.ForeignKey(
+        Course, on_delete=models.DO_NOTHING, related_name="materials", blank=True, null=True)
     year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
     # posted_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='materials')
     # date_posted = models.DateTimeField(default=timezone.now)
     # description = models.TextField()
 
     def __str__(self):
-        return self.title    
+        return self.title
 
 
 class Recommendation(models.Model):
     title = models.CharField(max_length=250)
-    recommended_by = models.CharField(max_length=60)
+    recommended_by_faculty = models.ForeignKey(
+        Faculty, on_delete=DO_NOTHING, blank=True, null=True, related_name='recommendations')
+    recommended_by_contributor = models.ForeignKey(
+        Contributor, on_delete=DO_NOTHING, blank=True, null=True, related_name='recommendations')
     link = models.URLField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
 
 # class Portion(models.Model):
 #     subject = models.ForeignKey(Subject, on_delete=models.DO_NOTHING, related_name="portions")
@@ -229,16 +254,17 @@ class Gtimetable(models.Model):
 
     # title = models.CharField(max_length=150)
     gsheet_src = models.URLField(max_length=90)
-    college = models.ForeignKey(College, on_delete=models.DO_NOTHING, related_name="gsheettables")
-    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING, related_name="gsheettables", blank=True, null=True)
-    year = models.CharField(max_length=8,choices=YEARS, default='FIRST')
+    college = models.ForeignKey(
+        College, on_delete=models.DO_NOTHING, related_name="gsheettables")
+    branch = models.ForeignKey(Branch, on_delete=models.DO_NOTHING,
+                               related_name="gsheettables", blank=True, null=True)
+    year = models.CharField(max_length=8, choices=YEARS, default='FIRST')
 
     class Meta:
         unique_together = ('college', 'branch', 'year')
 
     def __str__(self):
-        return f"{self.college.college_code}: Timetable for {self.branch.branch_code} {self.year} year."  
-
+        return f"{self.college.college_code}: Timetable for {self.branch.branch_code} {self.year} year."
 
 
 # class Timetable(models.Model):
@@ -297,12 +323,3 @@ class Gtimetable(models.Model):
 
 #     def __str__(self):
 #         return f"Lecture on {self.subject.subject_code} by {self.teacher} ( {self.start_time} - {self.end_time} )"
-
-
-
-
-
-
- 
-
-

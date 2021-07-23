@@ -35,16 +35,19 @@ class TextbookInline(admin.StackedInline):
     model = Textbook
     fields = ['title']
 
+
 class MaterialInline(admin.StackedInline):
     model = Material
+
 
 class BranchInline(admin.StackedInline):
     model = Branch
     fields = ['branch_code', 'name']
 
+
 class CourseInline(admin.StackedInline):
     model = Course
-    fields = ['course_code','name']
+    fields = ['course_code', 'name']
 
 
 class SubjectAdmin(admin.ModelAdmin):
@@ -52,17 +55,17 @@ class SubjectAdmin(admin.ModelAdmin):
         TextbookInline
     ]
 
+
 class CourseAdmin(admin.ModelAdmin):
     inlines = [
         TextbookInline
-    ]  
+    ]
+
 
 class BranchAdmin(admin.ModelAdmin):
     inlines = [
         TextbookInline
-    ] 
-
-
+    ]
 
 
 class CollegeAdmin(admin.ModelAdmin):
@@ -71,10 +74,12 @@ class CollegeAdmin(admin.ModelAdmin):
         CourseInline
     ]
 
+
 class ContributorAdmin(admin.ModelAdmin):
     inlines = [
         MaterialInline,
     ]
+
 
 admin.site.register(College, CollegeAdmin)
 admin.site.register(Course, CourseAdmin)
@@ -83,6 +88,7 @@ admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Textbook)
 admin.site.register(Faculty)
 admin.site.register(Material)
+admin.site.register(Recommendation)
 # admin.site.register(Portion)
 admin.site.register(Gtimetable)
 admin.site.register(Contributor, ContributorAdmin)
@@ -91,9 +97,6 @@ admin.site.register(Contributor, ContributorAdmin)
 # admin.site.register(Lecture)
 # admin.site.register(Day, DayAdmin)
 # admin.site.register(Timetable, TimetabelAdmin)
-
-
-
 
 
 # admin.site.register(Timetable, TimetableAdmin)
